@@ -212,3 +212,86 @@ function wc_category_slider_print_js_template() {
 
 add_action( 'admin_footer', 'wc_category_slider_print_js_template' );
 
+function wc_category_slider_rest_api() {
+	$namespace = 'wc-category-slider/v1';
+
+	register_rest_route($namespace, '/slider/all', array(
+		array(
+			'methods' => 'GET',
+			'callback' => 'wc_category_slider_rest_api_get_all_sliders'
+		)
+	));
+
+	register_rest_route($namespace, '/slider/(?P<id>\d+)', array(
+		array(
+			'methods' => 'GET',
+			'callback' => 'wc_category_slider_rest_api_get_slider_preview'
+		)
+	));
+}
+add_action( 'rest_api_init', 'wc_category_slider_rest_api' );
+
+function wc_category_slider_rest_api_get_all_sliders() {
+	$capability = 'edit_others_posts';
+	if ( ! current_user_can( $capability ) ) {
+		return wp_send_json_error(array(
+			'message' => __('You do not have access to this resource.', 'woo-category-slider-by-pluginever')
+		), 401);
+	}
+
+	$slider_posts = get_posts( array(
+		'post_type' => 'wc_category_slider',
+		'posts_per_page' => -1,
+	) );
+
+	$sliders = array();
+
+	foreach ($slider_posts as $slider_post) {
+		$sliders[ $slider_post->ID ] = $slider_post->post_title;
+	}
+
+
+	return wp_send_json_success( $sliders );
+}
+
+function wc_category_slider_rest_api_get_slider_preview( $data ) {
+	$capability = 'edit_others_posts';
+	if ( ! current_user_can( $capability ) ) {
+		return wp_send_json_error(array(
+			'message' => __('You do not have access to this resource.', 'woo-category-slider-by-pluginever')
+		), 401);
+	}
+
+	$slider_id = isset( $data['id'] ) ? $data['id'] : false;
+
+	if ( $slider_id === false ) {
+		return wp_send_json_error(array(
+			'message' => __('Given slider ID is not valid.', 'woo-category-slider-by-pluginever')
+		), 404);
+	}
+
+	
+	// $slide_view = wc_category_slider_get_slider_preview_html( $slider_id );
+	
+
+	return wp_send_json_success( do_shortcode( '[woo_category_slider id="' . $slider_id . '"]' ) );
+}
+
+function wc_category_slider_get_slider_preview_html( $id ) {
+	ob_start();
+	?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php wp_head(); ?>
+	</head>
+	<body>
+		<?php echo do_shortcode( '[woo_category_slider id="' . $id . '"]' ); ?>
+
+		<?php wp_footer(); ?>
+	</body>
+</html>
+	<?php
+
+	return preg_replace('/\s+/S', " ", ob_get_clean());
+}
