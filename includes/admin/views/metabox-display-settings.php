@@ -7,66 +7,66 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post;
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_image',
+	'name'  => 'hide_image',
 	'label' => __( 'Hide Image', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_image', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_image', 'off' ),
 	'desc'  => __( 'Show/Hide image', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'    => 'empty_content',
+	'name'    => 'hide_content',
 	'label'   => __( 'Hide Content', 'woo-category-slider-by-pluginever' ),
-	'value'   => wc_category_slider_get_meta( $post->ID, 'empty_content', 'off' ),
+	'value'   => wc_category_slider_get_meta( $post->ID, 'hide_content', 'off' ),
 	'default' => 'no',
 	'desc'    => __( 'Show/Hide titile, button, description, icon', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_button',
+	'name'  => 'hide_button',
 	'label' => __( 'Hide Button', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_button', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_button', 'off' ),
 	'desc'  => __( 'Show/Hide button', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_icon',
+	'name'  => 'hide_icon',
 	'label' => __( 'Hide Icon', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_icon', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_icon', 'off' ),
 	'desc'  => __( 'Show/Hide icon', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_name',
+	'name'  => 'hide_name',
 	'label' => __( 'Hide Category Name', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_name', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_name', 'off' ),
 	'desc'  => __( 'Show/Hide category name', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_product_count',
+	'name'  => 'hide_count',
 	'label' => __( 'Hide Product Count', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_product_count', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_count', 'off' ),
 	'desc'  => __( 'Show/Hide slider product count', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_nav',
+	'name'  => 'hide_nav',
 	'label' => __( 'Hide Navigation', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_nav', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_nav', 'off' ),
 	'desc'  => __( 'Show/Hide slider navigation', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_paginate',
+	'name'  => 'hide_paginate',
 	'label' => __( 'Hide Pagination', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_paginate', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_paginate', 'off' ),
 	'desc'  => __( 'Show/Hide dotted pagination', 'woo-category-slider-by-pluginever' ),
 ) );
 
 echo wc_category_slider()->elements->switcher( array(
-	'name'  => 'empty_border',
+	'name'  => 'hide_border',
 	'label' => __( 'Hide Border', 'woo-category-slider-by-pluginever' ),
-	'value' => wc_category_slider_get_meta( $post->ID, 'empty_border', 'off' ),
+	'value' => wc_category_slider_get_meta( $post->ID, 'hide_border', 'off' ),
 	'desc'  => __( 'Border around slider image.', 'woo-category-slider-by-pluginever' ),
 ) );
 

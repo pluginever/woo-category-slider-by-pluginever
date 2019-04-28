@@ -64,14 +64,14 @@ class WC_Category_Slider_Shortcode {
 		$order               = wc_category_slider_get_meta( $post_id, 'order', 'asc' );
 		$include_child       = wc_category_slider_get_meta( $post_id, 'include_child', 'on' );
 		$hide_empty          = wc_category_slider_get_meta( $post_id, 'hide_empty', 'on' );
-		$empty_name          = wc_category_slider_get_meta( $post_id, 'empty_name', 'off' );
-		$empty_image         = wc_category_slider_get_meta( $post_id, 'empty_image', 'off' );
-		$empty_content       = wc_category_slider_get_meta( $post_id, 'empty_content', 'off' );
+		$hide_name          = wc_category_slider_get_meta( $post_id, 'hide_name', 'off' );
+		$hide_image         = wc_category_slider_get_meta( $post_id, 'hide_image', 'off' );
+		$hide_content       = wc_category_slider_get_meta( $post_id, 'hide_content', 'off' );
 		$show_desc           = wc_category_slider_get_meta( $post_id, 'show_desc', 'off' );
-		$empty_product_count = wc_category_slider_get_meta( $post_id, 'empty_product_count', 'off' );
-		$empty_border        = wc_category_slider_get_meta( $post_id, 'empty_border', 'off' );
-		$empty_button        = wc_category_slider_get_meta( $post_id, 'empty_button', 'off' );
-		$empty_icon          = wc_category_slider_get_meta( $post_id, 'empty_icon', 'off' );
+		$hide_count = wc_category_slider_get_meta( $post_id, 'hide_count', 'off' );
+		$hide_border        = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
+		$hide_button        = wc_category_slider_get_meta( $post_id, 'hide_button', 'off' );
+		$hide_icon          = wc_category_slider_get_meta( $post_id, 'hide_icon', 'off' );
 		$button_text         = wc_category_slider_get_meta( $post_id, 'button_text', __( 'Shop Now', 'woo-category-slider-by-pluginever' ) );
 		$hover_style         = wc_category_slider_get_meta( $post_id, 'hover_style', 'hover-zoom-in' );
 		$icon_size           = wc_category_slider_get_meta( $post_id, 'icon_size', '2x' );
@@ -102,15 +102,15 @@ class WC_Category_Slider_Shortcode {
 		$slider_class  = 'wc-category-slider-' . $post_id;
 		$wrapper_class = "$theme_class $slider_class $hover_style";
 
-		if ( 'on' == $empty_image ) {
+		if ( 'on' == $hide_image ) {
 			$wrapper_class .= ' hide-image ';
 		}
 
-		if ( 'on' == $empty_content ) {
+		if ( 'on' == $hide_content ) {
 			$wrapper_class .= ' hide-content ';
 		}
 
-		if ( 'on' == $empty_border ) {
+		if ( 'on' == $hide_border ) {
 			$wrapper_class .= ' hide-border ';
 		}
 
@@ -126,25 +126,25 @@ class WC_Category_Slider_Shortcode {
 
 
 		//=== Slider Components ===
-		if ( 'on' != $empty_image && ! empty( $term['image_id'] ) ) {
+		if ( 'on' != $hide_image && ! empty( $term['image_id'] ) ) {
 			$image = sprintf( '<div class="wc-slide-image-wrapper"><a class="wc-slide-link" href="%s">%s</a></div>', $term['url'], wp_get_attachment_image( $term['image_id'], $image_size, '', array( 'class' => $image_size ) ) );
 		} else {
 			$image = '';
 		}
 
-		if ( 'off' == $empty_icon && ! empty( $term['icon'] ) ) {
+		if ( 'off' == $hide_icon && ! empty( $term['icon'] ) ) {
 			$icon = sprintf( '<i class="fa %s wc-slide-icon fa-%s" aria-hidden="true"></i>', esc_attr( $term['icon'] ), $icon_size );
 		} else {
 			$icon = '';
 		}
 
-		if ( 'on' != $empty_name ) {
+		if ( 'on' != $hide_name ) {
 			$title = sprintf( '<a href="%s" class="wc-slide-link"><h3 class="wc-slide-title">%s</h3></a>', $term['url'], $term['name'] );
 		} else {
 			$title = '';
 		}
 
-		if ( 'on' != $empty_product_count ) {
+		if ( 'on' != $hide_count ) {
 			$count = sprintf( '<span class="wc-slide-product-count">%s</span>', __( sprintf( '<span>%s</span> Products', $term['count'] ), 'woo-category-slider-by-pluginever' ) );
 		} else {
 			$count = '';
@@ -169,7 +169,7 @@ class WC_Category_Slider_Shortcode {
 		}
 
 		$description = $show_desc == 'on' && ! empty( $term['description'] ) ? sprintf( '<p class="wc-slide-description">%s</p>', $term['description'] ) : '';
-		$button      = $empty_button != 'on' ? sprintf( '<a href="%s" class="wc-slide-button">%s</a>', esc_url( $term['url'] ), $button_text ) : '';
+		$button      = $hide_button != 'on' ? sprintf( '<a href="%s" class="wc-slide-button">%s</a>', esc_url( $term['url'] ), $button_text ) : '';
 
 		?>
 
@@ -183,7 +183,7 @@ class WC_Category_Slider_Shortcode {
 
 		<?php
 
-		if ( 'off' == $empty_content ) { ?>
+		if ( 'off' == $hide_content ) { ?>
 			<div class="wc-slide-content-wrapper">
 
 				<?php
@@ -306,7 +306,7 @@ class WC_Category_Slider_Shortcode {
 	) {
 
 		$config = array(
-			'dots'               => 'off' == wc_category_slider_get_meta( $post_id, 'empty_paginate', 'off' ) ? true : false,
+			'dots'               => 'off' == wc_category_slider_get_meta( $post_id, 'hide_paginate', 'off' ) ? true : false,
 			'autoHeight'         => true,
 			'singleItem'         => true,
 			'autoplay'           => 'on' == wc_category_slider_get_meta( $post_id, 'autoplay' ) ? true : false,
@@ -316,7 +316,7 @@ class WC_Category_Slider_Shortcode {
 			'autoplayTimeout'    => intval( wc_category_slider_get_meta( $post_id, 'slider_speed', 3000 ) ),
 			'autoplaySpeed'      => intval( wc_category_slider_get_meta( $post_id, 'autoplay_speed', 600 ) ),
 			'autoplayHoverPause' => true,
-			'nav'                => 'off' == wc_category_slider_get_meta( $post_id, 'empty_nav', 'off' ) ? true : false,
+			'nav'                => 'off' == wc_category_slider_get_meta( $post_id, 'hide_nav', 'off' ) ? true : false,
 			'navText'            => [ '<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>' ],
 			'stagePadding'       => 4,
 			'items'              => intval( wc_category_slider_get_meta( $post_id, 'cols', 3 ) ),
@@ -355,7 +355,7 @@ class WC_Category_Slider_Shortcode {
 		$post_id
 	) {
 		$theme        = wc_category_slider_get_meta( $post_id, 'theme' );
-		$empty_border = wc_category_slider_get_meta( $post_id, 'empty_border', 'off' );
+		$hide_border = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
 
 		//wrapper classes
 		$prefix          = "#wc-category-slider-{$post_id} .wc-slide";
@@ -364,7 +364,7 @@ class WC_Category_Slider_Shortcode {
 
 		ob_start();
 
-		if ( $empty_border == 'on' ) {
+		if ( $hide_border == 'on' ) {
 			echo "$prefix{border: 1px solid transparent}";
 		}
 

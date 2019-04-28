@@ -459,7 +459,7 @@ class WC_Slider_Elements {
 	/**
 	 * Renders an HTML Switcher
 	 *
-	 * @since 3.1.3
+	 * @since 4.0.0
 	 *
 	 * @param array $args
 	 *

@@ -26,12 +26,16 @@ class Install{
 	 * @return void
 	 */
 	function activate() {
+
         if ( false == get_option( 'woocatslider_install_date' ) ) {
             update_option( 'woocommerce_category_slider_install_date', current_time( 'timestamp' ) );
         }else{
             update_option( 'woocommerce_category_slider_install_date', get_option( 'woocatslider_install_date' ) );
             delete_option('woocatslider_install_date');
         }
+
+		update_option( 'wc_category_slider_version', WC_SLIDER_VERSION );
+
 	}
 
 	/**

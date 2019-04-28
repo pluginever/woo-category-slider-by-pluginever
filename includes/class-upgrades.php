@@ -5,77 +5,72 @@
  *
  * @since 1.0.0
  */
-class Woocommerce_Category_Slider_Upgrades {
+class WCSN_Updates {
 
-    /**
-     * The upgrades
-     *
-     * @var array
-     */
-    private static $upgrades = array(// '1.0'    => 'updates/update-1.0.php',
-    );
+	/**
+	 * The upgrades
+	 *
+	 * @var array
+	 */
+	private static $upgrades = array( '4.0.0' => 'updates/update-4.0.0.php' );
 
-    /**
-     * Get the plugin version
-     *
-     * @return string
-     */
-    public function get_version() {
-        return get_option( 'wc_category_slider_version' );
-    }
+	/**
+	 * Check if the plugin needs any update
+	 *
+	 * @return boolean
+	 */
+	public function needs_update() {
 
-    /**
-     * Check if the plugin needs any update
-     *
-     * @return boolean
-     */
-    public function needs_update() {
+		// may be it's the first install
+		if ( ! $this->get_version() && ! $this->get_installation_date() ) {
+			return false;
+		}
 
-        if ( empty( get_option( 'wc_category_slider_post_type_updated' ) ) ) {
-            $this->change_post_type();
-        }
 
-        // may be it's the first install
-        if ( ! $this->get_version() ) {
-            return false;
-        }
+		if ( version_compare( $this->get_version(), WC_SLIDER_VERSION, '>=' ) ) {
+			return false;
+		}
 
-        if ( version_compare( $this->get_version(), 'WCS_VERSION', '<' ) ) {
-            return true;
-        }
+		if ( ! $this->get_version() && $this->get_installation_date() ) {
+			return true;
+		}
 
-        return false;
-    }
+		if ( version_compare( $this->get_version(), WC_SLIDER_VERSION, '<' ) ) {
+			return true;
+		}
 
-    /**
-     * Perform all the necessary upgrade routines
-     *
-     * @return void
-     */
-    function perform_updates() {
-        $installed_version = $this->get_version();
-        $path              = trailingslashit( dirname( __FILE__ ) );
+		return false;
+	}
 
-        foreach ( self::$upgrades as $version => $file ) {
-            if ( version_compare( $installed_version, $version, '<' ) ) {
-                include $path . $file;
-                update_option( 'wc_category_slider_version', $version );
-            }
-        }
+	/**
+	 * Get the plugin version
+	 *
+	 * @return string
+	 */
+	public function get_version() {
+		return get_option( 'wc_category_slider_version' );
+	}
 
-        update_option( 'wc_category_slider_version', 'WCS_VERSION' );
-    }
+	public function get_installation_date() {
+		return get_option( 'woocommerce_category_slider_install_date' );
+	}
 
-    function change_post_type() {
-        global $wpdb;
-        $sql = "UPDATE $wpdb->posts SET post_type = 'wc_category_slider' WHERE post_type = 'woocatslider'";
-        error_log($sql);
-        $wpdb->query($sql);
-        $sql = "UPDATE $wpdb->posts SET post_type = 'wc_category_slider' WHERE post_type = 'woocatsliderpro'";
-        error_log($sql);
-        $wpdb->query($sql);
+	/**
+	 * Perform all the necessary upgrade routines
+	 *
+	 * @return void
+	 */
+	function perform_updates() {
+		$installed_version = $this->get_version();
+		$path              = trailingslashit( dirname( __FILE__ ) );
 
-        update_option( 'wc_category_slider_post_type_updated', 1 );
-    }
+		foreach ( self::$upgrades as $version => $file ) {
+			if ( version_compare( $installed_version, $version, '<' ) ) {
+				include $path . $file;
+			}
+		}
+
+		update_option( 'wc_category_slider_version', WC_SLIDER_VERSION );
+	}
 
 }

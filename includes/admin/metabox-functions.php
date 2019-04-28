@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * remove metaboxes
  *
- * @since 3.1.3
+ * @since 4.0.0
  */
 function wc_slider_remove_meta_boxes() {
 	$post_type = 'wc_category_slider';
@@ -21,7 +21,7 @@ add_action( 'add_meta_boxes', 'wc_slider_remove_meta_boxes', 10 );
 /**
  * register metaboxes
  *
- * @since 3.1.3
+ * @since 4.0.0
  */
 function wc_slider_register_meta_boxes() {
 	$post_type = 'wc_category_slider';
@@ -48,7 +48,7 @@ function wc_slider_settings_metabox( $post ) {
 /**
  * Category settings metabox
  *
- * @since 3.1.3
+ * @since 4.0.0
  */
 function wc_slider_render_category_settings_metabox( $post ) {
 
@@ -221,15 +221,15 @@ function wc_category_slider_update_settings( $post_id ) {
 	update_post_meta( $post_id, 'limit_number', empty( $posted['limit_number'] ) ? '' : intval( $posted['limit_number'] ) );
 	update_post_meta( $post_id, 'include_child', empty( $posted['include_child'] ) ? 'off' : 'on' );
 	update_post_meta( $post_id, 'hide_empty', empty( $posted['hide_empty'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_image', empty( $posted['empty_image'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_content', empty( $posted['empty_content'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_button', empty( $posted['empty_button'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_icon', empty( $posted['empty_icon'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_name', empty( $posted['empty_name'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_product_count', empty( $posted['empty_product_count'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_nav', empty( $posted['empty_nav'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_paginate', empty( $posted['empty_paginate'] ) ? 'off' : 'on' );
-	update_post_meta( $post_id, 'empty_border', empty( $posted['empty_border'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_image', empty( $posted['hide_image'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_content', empty( $posted['hide_content'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_button', empty( $posted['hide_button'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_icon', empty( $posted['hide_icon'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_name', empty( $posted['hide_name'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_count', empty( $posted['hide_count'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_nav', empty( $posted['hide_nav'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_paginate', empty( $posted['hide_paginate'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'hide_border', empty( $posted['hide_border'] ) ? 'off' : 'on' );
 	update_post_meta( $post_id, 'hover_style', empty( $posted['hover_style'] ) ? '' : sanitize_key( $posted['hover_style'] ) );
 	update_post_meta( $post_id, 'theme', empty( $posted['theme'] ) ? '' : sanitize_key( $posted['theme'] ) );
 	update_post_meta( $post_id, 'autoplay', empty( $posted['autoplay'] ) ? 'off' : 'on' );

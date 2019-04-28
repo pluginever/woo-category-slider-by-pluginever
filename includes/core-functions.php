@@ -77,7 +77,7 @@ function wc_slider_get_category_list() {
 /**
  * Get fontawesome icons list
  *
- * @since 3.1.3
+ * @since 4.0.0
  *
  * @return array
  */
@@ -724,7 +724,7 @@ function wc_slider_get_icon_list() {
 /**
  * Get google fonts list
  *
- * @since 3.1.3
+ * @since 4.0.0
  *
  * @return array
  */
@@ -782,7 +782,7 @@ add_filter( 'wc_category_slider_categories', 'wc_slider_get_categories_data', 10
 /**
  * Get all registered image sizes
  *
- * @since 3.1.3
+ * @since 4.0.0
  *
  * @return array
  */

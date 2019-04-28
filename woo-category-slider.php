@@ -50,7 +50,7 @@ class Woocommerce_Category_Slider {
 	 *
 	 * @var string
 	 */
-	public $version = '3.1.2';
+	public $version = '4.0.0';
 
 	/**
 	 * @since 1.0.0
@@ -237,10 +237,14 @@ class Woocommerce_Category_Slider {
 	}
 
 	public function init_update() {
-//        $updater = new WCSN_Updates();
-//        if ( $updater->needs_update() ) {
-//            $updater->perform_updates();
-//        }
+
+		require_once( WC_SLIDER_INCLUDES . '/class-upgrades.php' );
+
+        $updater = new WCSN_Updates();
+        if ( $updater->needs_update() ) {
+            $updater->perform_updates();
+        }
+
 	}
 
 	/**
