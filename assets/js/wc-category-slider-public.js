@@ -47,6 +47,7 @@ jQuery(document).ready(function ($, window, document, undefined) {
 
 				var maxHeight = 0;
 				slider.find('.owl-item.active').each(function () {
+
 					slider.imagesLoaded(function () {
 
 						var thisHeight = parseInt(slider.find('img').height(), 10);

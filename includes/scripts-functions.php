@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function wc_slider_load_public_assets( $hook ) {
+
 	wp_register_script( 'owl-carousel', WC_SLIDER_ASSETS_URL . "/vendor/owlcarousel/owl.carousel.js", [ 'jquery' ], date( 'i' ), true );
 	wp_register_script( 'imagesLoaded', WC_SLIDER_ASSETS_URL . "/vendor/imagesLoaded.min.js", [
 		'jquery',
@@ -34,6 +35,7 @@ function wc_slider_load_public_assets( $hook ) {
 	wp_enqueue_style( 'wc-category-slider' );
 	wp_enqueue_script( 'imagesLoaded' );
 	wp_enqueue_script( 'wc-category-slider' );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'wc_slider_load_public_assets' );
@@ -71,8 +73,8 @@ function wc_slider_load_admin_assets( $hook ) {
 	], date( 'i' ), true );
 	wp_localize_script( 'wc-category-slider', 'WCS',
 		[
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'nonce' => 'wc-category-slider',
+			'ajaxurl'    => admin_url( 'admin-ajax.php' ),
+			'nonce'      => 'wc-category-slider',
 			'codeEditor' => wp_enqueue_code_editor( array( 'type' => 'text/css' ) )
 		] );
 	wp_enqueue_style( 'wc-category-slider' );
@@ -96,8 +98,10 @@ function wc_slider_register_block() {
 
 	// Plugin Assets
 	wp_register_script( 'owl-carousel-editor', WC_SLIDER_ASSETS_URL . "/vendor/owlcarousel/owl.carousel.js", [ 'jquery' ], date( 'i' ), true );
+	wp_register_script( 'imagesLoaded', WC_SLIDER_ASSETS_URL . "/vendor/imagesLoaded.min.js", [ 'jquery' ], date( 'i' ), true );
 	wp_register_script( 'wc-category-slider-editor', WC_SLIDER_ASSETS_URL . "/js/wc-category-slider-public.js", [
 		'jquery',
+		'imagesLoaded',
 		'owl-carousel-editor'
 	], date( 'i' ), true );
 
