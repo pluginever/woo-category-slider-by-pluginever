@@ -77,7 +77,7 @@ $theme_color: #b0589f;
 			margin: 0 0 10px 0;
 			padding: 0;
 			color: inherit;
-			font-weight: 600;
+			font-weight: bold;
 		}
 
 		&-product-count {
@@ -138,7 +138,6 @@ $theme_color: #b0589f;
 				-webkit-tap-highlight-color: transparent;
 				outline: 0 !important;
 				opacity: .8;
-				color: inherit;
 			}
 		}
 	}

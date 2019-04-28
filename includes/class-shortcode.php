@@ -67,13 +67,13 @@ class WC_Category_Slider_Shortcode {
 		$empty_name          = wc_category_slider_get_meta( $post_id, 'empty_name', 'off' );
 		$empty_image         = wc_category_slider_get_meta( $post_id, 'empty_image', 'off' );
 		$empty_content       = wc_category_slider_get_meta( $post_id, 'empty_content', 'off' );
-		$show_desc           = wc_category_slider_get_meta( $post_id, 'show_desc', 'on' );
+		$show_desc           = wc_category_slider_get_meta( $post_id, 'show_desc', 'off' );
 		$empty_product_count = wc_category_slider_get_meta( $post_id, 'empty_product_count', 'off' );
 		$empty_border        = wc_category_slider_get_meta( $post_id, 'empty_border', 'off' );
 		$empty_button        = wc_category_slider_get_meta( $post_id, 'empty_button', 'off' );
 		$empty_icon          = wc_category_slider_get_meta( $post_id, 'empty_icon', 'off' );
 		$button_text         = wc_category_slider_get_meta( $post_id, 'button_text', __( 'Shop Now', 'woo-category-slider-by-pluginever' ) );
-		$hover_style         = wc_category_slider_get_meta( $post_id, 'hover_style', 'no-hover' );
+		$hover_style         = wc_category_slider_get_meta( $post_id, 'hover_style', 'hover-zoom-in' );
 		$icon_size           = wc_category_slider_get_meta( $post_id, 'icon_size', '2x' );
 		$image_size          = wc_category_slider_get_meta( $post_id, 'image_size', 'default' );
 
@@ -122,9 +122,7 @@ class WC_Category_Slider_Shortcode {
 
 		<?php
 
-	foreach ( $terms
-
-		as $term ) {
+	foreach ( $terms as $term ) {
 
 
 		//=== Slider Components ===

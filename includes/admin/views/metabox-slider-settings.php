@@ -4,7 +4,7 @@ echo wc_category_slider()->elements->switcher( array(
 	'name'           => 'autoplay',
 	'label'          => __( 'Slider Autoplay', 'woo-category-slider-by-pluginever' ),
 	'double_columns' => true,
-	'value'          => wc_category_slider_get_meta( $post->ID, 'autoplay', true ),
+	'value'          => wc_category_slider_get_meta( $post->ID, 'autoplay', 'yes' ),
 	'desc'           => __( 'Slider will automatically start playing is set Yes.', 'woo-category-slider-by-pluginever' ),
 ) );
 

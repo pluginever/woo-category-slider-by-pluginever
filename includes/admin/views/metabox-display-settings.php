@@ -77,7 +77,7 @@ echo wc_category_slider()->elements->select( array(
 	'show_option_all'  => '',
 	'show_option_none' => '',
 	'value'            => 'default',
-	'selected'         => wc_category_slider_get_meta( $post->ID, 'hover_style', 'no-hover' ),
+	'selected'         => wc_category_slider_get_meta( $post->ID, 'hover_style', 'hover-zoom-in' ),
 	'options'          => apply_filters( 'wc_category_slider_hover_styles', array(
 		'no-hover'      => __( 'No Hover', 'woo-category-slider-by-pluginever' ),
 		'hover-zoom-in' => __( 'Zoom In', 'woo-category-slider-by-pluginever' ),
