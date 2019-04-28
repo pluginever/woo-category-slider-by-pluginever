@@ -57,25 +57,25 @@ class WC_Category_Slider_Shortcode {
 
 		$selected_categories = 'all';
 
-		$theme               = wc_category_slider_get_meta( $post_id, 'theme', 'default' );
-		$selection_type      = wc_category_slider_get_meta( $post_id, 'selection_type', 'all' );
-		$limit_number        = wc_category_slider_get_meta( $post_id, 'limit_number', '10' );
-		$orderby             = wc_category_slider_get_meta( $post_id, 'orderby', 'name' );
-		$order               = wc_category_slider_get_meta( $post_id, 'order', 'asc' );
-		$include_child       = wc_category_slider_get_meta( $post_id, 'include_child', 'on' );
-		$hide_empty          = wc_category_slider_get_meta( $post_id, 'hide_empty', 'on' );
-		$hide_name          = wc_category_slider_get_meta( $post_id, 'hide_name', 'off' );
-		$hide_image         = wc_category_slider_get_meta( $post_id, 'hide_image', 'off' );
-		$hide_content       = wc_category_slider_get_meta( $post_id, 'hide_content', 'off' );
-		$show_desc           = wc_category_slider_get_meta( $post_id, 'show_desc', 'off' );
-		$hide_count = wc_category_slider_get_meta( $post_id, 'hide_count', 'off' );
-		$hide_border        = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
-		$hide_button        = wc_category_slider_get_meta( $post_id, 'hide_button', 'off' );
-		$hide_icon          = wc_category_slider_get_meta( $post_id, 'hide_icon', 'off' );
-		$button_text         = wc_category_slider_get_meta( $post_id, 'button_text', __( 'Shop Now', 'woo-category-slider-by-pluginever' ) );
-		$hover_style         = wc_category_slider_get_meta( $post_id, 'hover_style', 'hover-zoom-in' );
-		$icon_size           = wc_category_slider_get_meta( $post_id, 'icon_size', '2x' );
-		$image_size          = wc_category_slider_get_meta( $post_id, 'image_size', 'default' );
+		$theme          = wc_category_slider_get_meta( $post_id, 'theme', 'default' );
+		$selection_type = wc_category_slider_get_meta( $post_id, 'selection_type', 'all' );
+		$limit_number   = wc_category_slider_get_meta( $post_id, 'limit_number', '10' );
+		$orderby        = wc_category_slider_get_meta( $post_id, 'orderby', 'name' );
+		$order          = wc_category_slider_get_meta( $post_id, 'order', 'asc' );
+		$include_child  = wc_category_slider_get_meta( $post_id, 'include_child', 'on' );
+		$hide_empty     = wc_category_slider_get_meta( $post_id, 'hide_empty', 'on' );
+		$hide_name      = wc_category_slider_get_meta( $post_id, 'hide_name', 'off' );
+		$hide_image     = wc_category_slider_get_meta( $post_id, 'hide_image', 'off' );
+		$hide_content   = wc_category_slider_get_meta( $post_id, 'hide_content', 'off' );
+		$show_desc      = wc_category_slider_get_meta( $post_id, 'show_desc', 'off' );
+		$hide_count     = wc_category_slider_get_meta( $post_id, 'hide_count', 'off' );
+		$hide_border    = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
+		$hide_button    = wc_category_slider_get_meta( $post_id, 'hide_button', 'off' );
+		$hide_icon      = wc_category_slider_get_meta( $post_id, 'hide_icon', 'off' );
+		$button_text    = wc_category_slider_get_meta( $post_id, 'button_text', __( 'Shop Now', 'woo-category-slider-by-pluginever' ) );
+		$hover_style    = wc_category_slider_get_meta( $post_id, 'hover_style', 'hover-zoom-in' );
+		$icon_size      = wc_category_slider_get_meta( $post_id, 'icon_size', '2x' );
+		$image_size     = wc_category_slider_get_meta( $post_id, 'image_size', 'default' );
 
 		if ( 'all' != $selection_type ) {
 			$selected_category_ids = wc_category_slider_get_meta( $post_id, 'selected_categories', [] );
@@ -122,7 +122,9 @@ class WC_Category_Slider_Shortcode {
 
 		<?php
 
-	foreach ( $terms as $term ) {
+	foreach ( $terms
+
+		as $term ) {
 
 
 		//=== Slider Components ===
@@ -354,7 +356,7 @@ class WC_Category_Slider_Shortcode {
 	function get_slider_styles(
 		$post_id
 	) {
-		$theme        = wc_category_slider_get_meta( $post_id, 'theme' );
+		$theme       = wc_category_slider_get_meta( $post_id, 'theme' );
 		$hide_border = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
 
 		//wrapper classes

@@ -9,7 +9,8 @@
 /*jslint browser: true */
 /*global jQuery:false */
 
-jQuery(document).ready(function ($, window, document, undefined) {
+
+window.Project = (function (window, document, $, undefined) {
 	'use strict';
 	$.wc_category_slider_public = {
 
@@ -26,7 +27,7 @@ jQuery(document).ready(function ($, window, document, undefined) {
 			$('.wc-category-slider').each( function(index, el) {
 				var config = $(el).data('slider-config');
 				$.wc_category_slider_public.initSlider(config, el, true);
-				
+
 				$(el).trigger('refresh.owl.carousel');
 				setTimeout( function(){
 					$(el).trigger('refresh.owl.carousel');
@@ -42,12 +43,12 @@ jQuery(document).ready(function ($, window, document, undefined) {
 
 				if (slider.hasClass('single-slide')) {
 					return false;
-
 				}
 
 				var maxHeight = 0;
 				slider.find('.owl-item.active').each(function () {
 					var thisHeight = parseInt(slider.find('img').height(), 10);
+					console.log(thisHeight);
 					maxHeight = (maxHeight >= thisHeight ? maxHeight : thisHeight);
 				});
 
@@ -56,11 +57,6 @@ jQuery(document).ready(function ($, window, document, undefined) {
 				}
 
 				slider.find('.wc-slide-image-wrapper').css('height', maxHeight);
-				// slider.find('.wc-slide-image-wrapper img').css('height', maxHeight);
-				// slider.find('.wc-slide-image-wrapper img').css('width', 'auto');
-
-				slider.find('.wc-slide').css('border-width', 0);
-				slider.find('.wc-slide').css('border-width', '1px');
 
 			};
 
@@ -73,6 +69,7 @@ jQuery(document).ready(function ($, window, document, undefined) {
 		},
 	};
 
+	$(window).bind('load', $.wc_category_slider_public.init());
+	
+})(window, document, jQuery);
 
-	$.wc_category_slider_public.init();
-});
