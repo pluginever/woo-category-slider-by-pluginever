@@ -35,8 +35,8 @@ jQuery(document).ready(function ($, window, document, undefined) {
 			});
 		},
 
-		initSlider: function (config, el, reinit = false) {
-
+		initSlider: function (config, el, reinit ) {
+			reinit = reinit || false;
 			config.onInitialized = function (event) {
 
 				var slider = $(event.currentTarget);
@@ -57,7 +57,7 @@ jQuery(document).ready(function ($, window, document, undefined) {
 						if (maxHeight < 250) {
 							maxHeight = 250;
 						}
-
+						console.log(maxHeight);
 						slider.find('.wc-slide-image-wrapper').css('height', maxHeight);
 					});
 				});

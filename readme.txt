@@ -13,7 +13,7 @@ Showcase Your WooCommerce powered store's categories/subcategories in a more app
 == Description ==
 WooCommerce Category Slider plugin by PluginEver provides you the opportunity of showing WooCommerce product categories in a slider. You can show your product categories in a modern looking and descriptive slider that show details of your category. WooCommerce Category Slider plugin has lots of features that allows you to control the slider and its content.
 
->[DEMO](http://demo.pluginever.com/woo-category-slider-demo-wordpress-plugin/) |  [Get The PRO Version](https://www.pluginever.com/plugins/woo-category-slider/)  |  [Support](https://www.pluginever.com/support/)  |  [Documentation ](https://www.pluginever.com/docs/woocommerce-category-slider/)
+>[DEMO](https://demo.pluginever.com/wc-category-slider/) |  [Get The PRO Version](https://www.pluginever.com/plugins/woo-category-slider/)  |  [Support](https://www.pluginever.com/support/)  |  [Documentation ](https://www.pluginever.com/docs/woocommerce-category-slider/)
 
 
 == Why Would You Need WooCommerce Category Slider ==
@@ -39,12 +39,12 @@ Woo Category slider has a built-in very easy to use and user-friendly shortcode 
 
 Showing WooCommerce product categories in a slider help your visitors to find their category that they are looking for without struggling to find that all over the site.Which expands your sells.
 
-###Shortocode
-`[woo_category_slider]`
-
 == WooCommerce Category Slider Plugin Features ==
 * WooCommerce Product Category Slider
 * WooCommerce Product Sub Category Slider
+* Intuitive Shortcode builder
+* Fontawesome Icons support
+* Guttenberg block
 * Control what category to show all or custom
 * Control category details to show or hide
 * Show Number of products in the category
@@ -59,7 +59,7 @@ Showing WooCommerce product categories in a slider help your visitors to find th
 
 
 == Pro Features of Woo Category Slider ==
-* 10+ Eye-Catching ready-made theme
+* 27+ Eye-Catching ready-made theme
 * Custom Image size
 * Custom Category Image
 * Custom WooCommerce Category Order
@@ -123,7 +123,6 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
-
 = 4.0.0 =
 [Add] Categories autoload on selection
 [Add] Gutenberg Block
@@ -171,4 +170,3 @@ Set "show content" to No from the slider settings in display settings section
 
 = 1.0 =
 Initial release
-

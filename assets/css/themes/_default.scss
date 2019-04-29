@@ -5,6 +5,10 @@ $theme_color: #b0589f;
 	height: 100%;
 	margin-top: 60px;
 
+	.owl-height{
+		height: auto !important;
+	}
+
 	.wc-slide {
 		position: relative;
 		width: 100%;

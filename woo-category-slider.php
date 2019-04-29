@@ -11,9 +11,9 @@
  * Text Domain: woo-category-slider-by-pluginever
  * Domain Path: /languages
  * Requires at least: 4.4
- * Tested up to: 5.0.2
+ * Tested up to: 5.1.1
  * WC requires at least: 3.0.0
- * WC tested up to: 3.5.3
+ * WC tested up to: 3.6.2
  */
 
 /**
@@ -237,8 +237,6 @@ class Woocommerce_Category_Slider {
 	 */
 	public function is_pro_installed() {
 		return is_plugin_active( 'woocommerce-category-slider-pro/wc-category-slider-pro.php' ) == true;
-		//todo check and uncomments
-		//return  true;
 	}
 
 	/**
