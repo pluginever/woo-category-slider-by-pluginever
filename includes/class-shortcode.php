@@ -128,8 +128,8 @@ class WC_Category_Slider_Shortcode {
 
 
 		//=== Slider Components ===
-		if ( 'on' != $hide_image && ! empty( $term['image_id'] ) ) {
-			$image = sprintf( '<div class="wc-slide-image-wrapper"><a class="wc-slide-link" href="%s">%s</a></div>', $term['url'], wp_get_attachment_image( $term['image_id'], $image_size, '', array( 'class' => $image_size ) ) );
+		if ( 'on' != $hide_image ) {
+			$image = sprintf( '<div class="wc-slide-image-wrapper"><a class="wc-slide-link" href="%s">%s</a></div>', $term['url'], ! empty( $term['image_id'] ) ? wp_get_attachment_image( $term['image_id'], $image_size, '', array( 'class' => $image_size ) ) : '<img class="default" src="'.WC_CAT_SLIDER_ASSETS_URL.'/images/placeholder.png">'  );
 		} else {
 			$image = '';
 		}
