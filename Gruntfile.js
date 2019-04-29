@@ -21,6 +21,7 @@ module.exports = function (grunt) {
 			all: [
 				'Gruntfile.js',
 				'<%= dirs.js %>/*.js',
+				'!<%= dirs.js %>/wc-category-slider-block.js',
 				'!<%= dirs.js %>/*.min.js'
 			]
 		},
@@ -81,7 +82,7 @@ module.exports = function (grunt) {
 		sass: {
 			compile: {
 				options: {
-					sourceMap: 'none'
+					sourceMap: false
 				},
 				files: [{
 					expand: true,
@@ -183,7 +184,8 @@ module.exports = function (grunt) {
 					'!node_modules/**',       // Exclude node_modules/
 					'!tests/**',              // Exclude tests/
 					'!vendor/**',             // Exclude vendor/
-					'!tmp/**'                 // Exclude tmp/
+					'!tmp/**',                 // Exclude tmp/
+					'!includes/class-insights.php' // Exclude tracker
 				],
 				expand: true
 			}
@@ -268,7 +270,9 @@ module.exports = function (grunt) {
 					'!.csscomb.json',
 					'!.editorconfig',
 					'!.jshintrc',
-					'!.tmp'
+					'!.tmp',
+					'!webpack.config.js',
+					'!src/**'
 				],
 				dest: 'build/'
 			}
@@ -278,7 +282,7 @@ module.exports = function (grunt) {
 			main: {
 				options: {
 					mode: 'zip',
-					archive: './build/'+pkg.name+'-v' + pkg.version + '.zip'
+					archive: './build/' + pkg.name + '-v' + pkg.version + '.zip'
 				},
 				expand: true,
 				cwd: 'build/',
