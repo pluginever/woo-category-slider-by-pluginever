@@ -10,7 +10,7 @@ class WC_Category_Slider_Promotion {
 	protected $uniq_key;
 
 	public function __construct() {
-		$this->uniq_key = sanitize_key(wc_category_slider()->plugin_name);
+		$this->uniq_key = sanitize_key('wc-category-slider');
 		add_action( 'admin_notices', array( $this, 'promotional_offer' ) );
 		add_action( 'wp_ajax_'.$this->uniq_key.'-dismiss-promotional-offer-notice', array( $this, 'dismiss_promotional_offer' ) );
 	}
@@ -90,7 +90,7 @@ class WC_Category_Slider_Promotion {
 	 */
 	public function dismiss_promotional_offer() {
 		if ( ! empty( $_POST['dismissed'] ) ) {
-			$offer_key = 'wcsn_initial_upsell_promotion';
+			$offer_key = $this->uniq_key.'_initial_upsell_promotion';
 			update_option( $offer_key, 'hide' );
 		}
 	}

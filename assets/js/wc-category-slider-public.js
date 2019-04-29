@@ -9,6 +9,7 @@
 /*jslint browser: true */
 /*global jQuery:false */
 
+
 jQuery(document).ready(function ($, window, document, undefined) {
 	'use strict';
 	$.wc_category_slider_public = {
@@ -73,7 +74,7 @@ jQuery(document).ready(function ($, window, document, undefined) {
 			} else {
 				$(el).owlCarousel(config);
 			}
-		},
+		}
 	};
 
 
