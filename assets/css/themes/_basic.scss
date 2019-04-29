@@ -1,0 +1,18 @@
+.wc-category-slider.wc-category-basic {
+	.wc-slide {
+		position: relative;
+		.wc-slide-image-wrapper {
+			height: 100%;
+			position: relative;
+		}
+		.wc-slide-content-wrapper {
+			position: absolute;
+			background: rgba(238, 238, 238, .79);
+			width: 100%;
+			height: auto;
+			flex-flow: column;
+			margin-top: auto;
+			bottom: 0;
+		}
+	}
+}

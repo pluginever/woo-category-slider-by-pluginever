@@ -1,0 +1,40 @@
+@import "grid";
+@import "form";
+@import "admin/reset";
+@import "admin/_components";
+@import "admin/metabox";
+@import "admin/responsive";
+
+.wccs-spinner {
+	background: url('/wp-includes/images/spinner-2x.gif') no-repeat;
+	background-size: 25px 25px;
+	display: block;
+	width: 32px;
+	height: 32px;
+	margin: 0 auto;
+}
+
+.wccs-loading-text{
+	font-size: 20px !important;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	color: #9a9a9a;
+}
+.wc-category-slides-wrapper{
+	.ever-slide{
+		display: none !important;
+	}
+}
+.wc-category-slides-wrapper.loaded{
+	.wccs-spinner, .wccs-loading-text{
+		display: none;
+	}
+	.ever-slide{
+		display: block !important;
+	}
+}
+
+.ever-slide-icon select, .ever-slide-icon select option{
+	font-family: "FontAwesome", "Helvetica Neue";
+}

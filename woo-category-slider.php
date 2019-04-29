@@ -3,17 +3,17 @@
  * Plugin Name: WooCommerce Category Slider
  * Plugin URI:  https://pluginever.com/woocommerce-category-slider
  * Description: Showcase Your WooCommerce powered Shop's category in a more appealing way to expand your sell.
- * Version:     3.1.2
+ * Version:     4.0.0
  * Author:      pluginever
  * Author URI:  http://pluginever.com
  * Donate link: https://pluginever.com/contact
  * License:     GPLv2+
- * Text Domain: wc_category_slider
+ * Text Domain: woo-category-slider-by-pluginever
  * Domain Path: /languages
  * Requires at least: 4.4
- * Tested up to: 5.0.2
+ * Tested up to: 5.1.1
  * WC requires at least: 3.0.0
- * WC tested up to: 3.5.3
+ * WC tested up to: 3.6.2
  */
 
 /**
@@ -36,7 +36,7 @@
 
 // don't call the file directly
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 /**
@@ -45,262 +45,287 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 class Woocommerce_Category_Slider {
+	/**
+	 * WCSerialNumbers version.
+	 *
+	 * @var string
+	 */
+	public $version = '4.0.0';
 
-    /**
-     * Add-on Version
-     *
-     * @since 1.0.0
-     * @var  string
-     */
-    public $version = '3.1.2';
+	/**
+	 * @since 1.0.0
+	 *
+	 * @var string
+	 */
+	protected $min_php = '5.6';
 
-    /**
-     * Minimum PHP version required
-     *
-     * @var string
-     */
-    private $min_php = '5.4.0';
-
-
-    /**
-     * Constructor for the class
-     *
-     * Sets up all the appropriate hooks and actions
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function __construct() {
-        // dry check on older PHP versions, if found deactivate itself with an error
-        register_activation_hook( __FILE__, array( $this, 'auto_deactivate' ) );
-
-        if ( ! $this->is_supported_php() ) {
-            return;
-        }
-
-        // Define constants
-        $this->define_constants();
-
-        // Include required files
-        $this->includes();
-
-        // Initialize the action hooks
-        $this->init_hooks();
-
-        // instantiate classes
-        $this->instantiate();
-
-        do_action( 'woocommerce_category_slider_loaded' );
-    }
-
-    /**
-     * Initializes the class
-     *
-     * Checks for an existing instance
-     * and if it does't find one, creates it.
-     *
-     * @since 1.0.0
-     *
-     * @return object Class instance
-     */
-    public static function init() {
-        static $instance = false;
-
-        if ( ! $instance ) {
-            $instance = new self();
-        }
-
-        return $instance;
-    }
-
-    /**
-     * Define constants
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    private function define_constants() {
-        define( 'WCS_VERSION', $this->version );
-        define( 'WCS_FILE', __FILE__ );
-        define( 'WCS_PATH', dirname( WCS_FILE ) );
-        define( 'WCS_INCLUDES', WCS_PATH . '/includes' );
-        define( 'WCS_URL', plugins_url( '', WCS_FILE ) );
-        define( 'WCS_ASSETS', WCS_URL . '/assets' );
-        define( 'WCS_VIEWS', WCS_PATH . '/views' );
-        define( 'WCS_TEMPLATES_DIR', WCS_PATH . '/templates' );
-    }
-
-    /**
-     * Include required files
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    private function includes() {
-        require WCS_INCLUDES . '/functions.php';
-        require WCS_INCLUDES . '/class-install.php';
-        require WCS_INCLUDES . '/metabox/class-metabox.php';
-        require WCS_INCLUDES . '/class-metabox.php';
-        require WCS_INCLUDES . '/class-cpt.php';
-        require WCS_INCLUDES . '/class-scripts.php';
-        require WCS_INCLUDES . '/class-shortcode.php';
-        require WCS_INCLUDES . '/class-insights.php';
-        require WCS_INCLUDES . '/class-tracker.php';
-    }
-
-    /**
-     * Init Hooks
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    private function init_hooks() {
-        // Localize our plugin
-        add_action( 'init', [ $this, 'localization_setup' ] );
-
-        add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
-
-        add_action( 'admin_init', [ $this, 'plugin_upgrades' ] );
-    }
-
-    /**
-     * Initialize plugin for localization
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function localization_setup() {
-        load_plugin_textdomain( 'wc_category_slider', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-    }
-
-    /**
-     * Do plugin upgrades
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    function plugin_upgrades() {
-
-        if ( ! current_user_can( 'manage_options' ) ) {
-            return;
-        }
-
-        require_once WCS_INCLUDES . '/class-upgrades.php';
-
-        $upgrader = new Woocommerce_Category_Slider_Upgrades();
-
-        if ( $upgrader->needs_update() ) {
-            $upgrader->perform_updates();
-        }
-    }
-
-    /**
-     * Instantiate classes
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    private function instantiate() {
-        new \Pluginever\WoocommerceCategorySlider\Install();
-        new \Pluginever\WoocommerceCategorySlider\CPT();
-        new \Pluginever\WoocommerceCategorySlider\Shortcode();
-        new \Pluginever\WoocommerceCategorySlider\MetaBox();
-        new \Pluginever\WoocommerceCategorySlider\Scripts();
-        new \Pluginever\WoocommerceCategorySlider\Tracker();
-    }
-
-    /**
-     * Plugin action links
-     *
-     * @param  array $links
-     *
-     * @return array
-     */
-    function plugin_action_links( $links ) {
-        $action_links = [];
-        if ( ! wc_category_slider_is_pro_active() ) {
-            $action_links['Upgrade'] = '<a target="_blank" href="https://www.pluginever.com/plugins/woocommerce-category-slider-pro/" title="' . esc_attr( __( 'Upgrade To Pro', 'wc_category_slider' ) ) . '" style="color:red;font-weight:bold;">' . __( 'Upgrade To Pro', 'wc_category_slider' ) . '</a>';
-        }
-        $action_links['Documentation'] = '<a target="_blank" href="https://www.pluginever.com/docs/woocommerce-category-slider/" title="' . esc_attr( __( 'View Plugin\'s Documentation', 'wc_category_slider' ) ) . '">' . __( 'Documentation', 'wc_category_slider' ) . '</a>';
+	/**
+	 * admin notices
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array
+	 */
+	protected $notices = array();
 
 
-        return array_merge( $action_links, $links );
-    }
+	/**
+	 * The single instance of the class.
+	 *
+	 * @var Woocommerce_Category_Slider
+	 * @since 1.0.0
+	 */
+	protected static $instance = null;
+
+	/**
+	 * @var \WC_Category_Slider_Elements
+	 */
+	public $elements;
+
+	/**
+	 * @since 1.0.0
+	 *
+	 * @var string
+	 */
+	protected $api_url;
+
+	/**
+	 * @since 1.0.0
+	 *
+	 * @var string
+	 */
+	public $plugin_name = 'WP WooCommerce Category Slider';
+
+	/**
+	 * WCSerialNumbers constructor.
+	 */
+	public function __construct() {
+		register_activation_hook( __FILE__, array( $this, 'activate' ) );
+		register_activation_hook( __FILE__, array( $this, 'activation_check' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
+		add_action( 'init', array( $this, 'localization_setup' ) );
+		add_action( 'admin_init', array( $this, 'init_update' ) );
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
+
+		if ( $this->is_plugin_compatible() ) {
+			$this->define_constants();
+			$this->includes();
+			$this->elements = new WC_Category_Slider_Elements();
+			$this->tracker  = new WC_Category_Slider_Tracker();
+		}
+	}
+
+	/**
+	 * Activate plugin
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return void
+	 */
+	public function activate(){
+		if ( false == get_option( 'woocatslider_install_date' ) ) {
+			update_option( 'woocommerce_category_slider_install_date', current_time( 'timestamp' ) );
+		}else{
+			update_option( 'woocommerce_category_slider_install_date', get_option( 'woocatslider_install_date' ) );
+			delete_option('woocatslider_install_date');
+		}
+
+		update_option( 'wc_category_slider_version', $this->version );
+	}
+
+	/**
+	 * Checks the server environment and other factors and deactivates plugins as necessary.
+	 *
+	 * @internal
+	 *
+	 * @since 1.0.0
+	 */
+	public function activation_check() {
+
+		if ( ! version_compare( PHP_VERSION, $this->min_php, '>=' ) ) {
+
+			deactivate_plugins( plugin_basename( __FILE__ ) );
+
+			$message = sprintf( '%s could not be activated The minimum PHP version required for this plugin is %1$s. You are running %2$s.', $this->plugin_name, $this->min_php, PHP_VERSION );
+			wp_die( $message );
+		}
+
+	}
+
+	/**
+	 * Determines if the plugin compatible.
+	 *
+	 * @return bool
+	 * @since 1.0.0
+	 *
+	 */
+	protected function is_plugin_compatible() {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			$this->add_notice( 'notice-error', sprintf(
+				'<strong>%s</strong> requires <strong>WooCommerce</strong> installed and active.',
+				$this->plugin_name
+			) );
+
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Adds an admin notice to be displayed.
+	 *
+	 * @param string $class the notice class
+	 * @param string $message the notice message body
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	public function add_notice( $class, $message ) {
+
+		$notices = get_option( sanitize_key( $this->plugin_name ), [] );
+		if ( is_string( $message ) && is_string( $class ) && ! wp_list_filter( $notices, array( 'message' => $message ) ) ) {
+
+			$notices[] = array(
+				'message' => $message,
+				'class'   => $class
+			);
+
+			update_option( sanitize_key( $this->plugin_name ), $notices );
+		}
+
+	}
 
 
-    /**
-     * Check if the PHP version is supported
-     *
-     * @return bool
-     */
-    public function is_supported_php( $min_php = null ) {
+	/**
+	 * Displays any admin notices added
+	 *
+	 * @internal
+	 *
+	 * @since 1.0.0
+	 */
+	public function admin_notices() {
+		$notices = (array) array_merge( $this->notices, get_option( sanitize_key( $this->plugin_name ), [] ) );
+		foreach ( $notices as $notice_key => $notice ) :
+			?>
+			<div class="notice notice-<?php echo sanitize_html_class( $notice['class'] ); ?>">
+				<p><?php echo wp_kses( $notice['message'], array( 'a' => array( 'href' => array() ), 'strong' => array() ) ); ?></p>
+			</div>
+			<?php
+			update_option( sanitize_key( $this->plugin_name ), [] );
+		endforeach;
+	}
 
-        $min_php = $min_php ? $min_php : $this->min_php;
+	/**
+	 * Initialize plugin for localization
+	 *
+	 * @return void
+	 * @since 1.0.0
+	 *
+	 */
+	public function localization_setup() {
+		load_plugin_textdomain( 'woo-category-slider-by-pluginever', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
 
-        if ( version_compare( PHP_VERSION, $min_php, '<=' ) ) {
-            return false;
-        }
+	/**
+	 * Determines if the pro version installed.
+	 *
+	 * @return bool
+	 * @since 1.0.0
+	 *
+	 */
+	public function is_pro_installed() {
+		return is_plugin_active( 'woocommerce-category-slider-pro/wc-category-slider-pro.php' ) == true;
+	}
 
-        return true;
-    }
+	/**
+	 * Plugin action links
+	 *
+	 * @param array $links
+	 *
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		$links[] = '<a href="https://www.pluginever.com/plugins/woocommerce-category-slider-pro/">' . __( 'Documentation', 'woo-category-slider-by-pluginever' ) . '</a>';
+		if ( ! $this->is_pro_installed() ) {
+			$links[] = '<a href="https://www.pluginever.com/plugins/woocommerce-category-slider-pro/" style="color: red;font-weight: bold;" target="_blank">' . __( 'Upgrade to PRO', 'woo-category-slider-by-pluginever' ) . '</a>';
+		}
 
-    /**
-     * Show notice about PHP version
-     *
-     * @return void
-     */
-    function php_version_notice() {
+		return $links;
+	}
 
-        if ( $this->is_supported_php() || ! current_user_can( 'manage_options' ) ) {
-            return;
-        }
+	public function init_update() {
 
-        $error = __( 'Your installed PHP Version is: ', 'wc_category_slider' ) . PHP_VERSION . '. ';
-        $error .= __( 'The <strong>WooCommerce Category Slider</strong> plugin requires PHP version <strong>', 'wc_category_slider' ) . $this->min_php . __( '</strong> or greater.', 'wc_category_slider' );
-        ?>
-        <div class="error">
-            <p><?php printf( $error ); ?></p>
-        </div>
-        <?php
-    }
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-upgrades.php' );
 
-    /**
-     * Bail out if the php version is lower than
-     *
-     * @return void
-     */
-    function auto_deactivate() {
-        if ( $this->is_supported_php() ) {
-            return;
-        }
+		$updater = new WC_Category_Slider_Updates();
+		if ( $updater->needs_update() ) {
+			$updater->perform_updates();
+		}
 
-        deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
 
-        $error = __( '<h1>An Error Occured</h1>', 'wc_category_slider' );
-        $error .= __( '<h2>Your installed PHP Version is: ', 'wc_category_slider' ) . PHP_VERSION . '</h2>';
-        $error .= __( '<p>The <strong>WooCommerce Category Slider</strong> plugin requires PHP version <strong>', 'wc_category_slider' ) . $this->min_php . __( '</strong> or greater', 'wc_category_slider' );
-        $error .= __( '<p>The version of your PHP is ', 'wc_category_slider' ) . '<a href="http://php.net/supported-versions.php" target="_blank"><strong>' . __( 'unsupported and old', 'wc_category_slider' ) . '</strong></a>.';
-        $error .= __( 'You should update your PHP software or contact your host regarding this matter.</p>', 'wc_category_slider' );
+	/**
+	 * define plugin constants
+	 *
+	 * since 1.0.0
+	 */
+	private function define_constants() {
+		define( 'WC_CAT_SLIDER_VERSION', $this->version );
+		define( 'WC_CAT_SLIDER_FILE', __FILE__ );
+		define( 'WC_CAT_SLIDER_PATH', dirname( WC_CAT_SLIDER_FILE ) );
+		define( 'WC_CAT_SLIDER_INCLUDES', WC_CAT_SLIDER_PATH . '/includes' );
+		define( 'WC_CAT_SLIDER_URL', plugins_url( '', WC_CAT_SLIDER_FILE ) );
+		define( 'WC_CAT_SLIDER_ASSETS_URL', WC_CAT_SLIDER_URL . '/assets' );
+		define( 'WC_CAT_SLIDER_TEMPLATES', WC_CAT_SLIDER_PATH . '/templates' );
+	}
 
-        wp_die( $error, __( 'Plugin Activation Error', 'wc_category_slider' ), array( 'back_link' => true ) );
-    }
+	/**
+	 * Include required core files used in admin and on the frontend.
+	 */
+	public function includes() {
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-elements.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/core-functions.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/hook-functions.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-shortcode.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-cpt.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/scripts-functions.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/admin/metabox-functions.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-insights.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-tracker.php' );
+		//admin
+		if ( ! $this->is_pro_installed() && is_admin() ) {
+			require_once( WC_CAT_SLIDER_INCLUDES . '/admin/class-promotion.php' );
+		}
 
+	}
+
+
+	/**
+	 * Returns the plugin loader main instance.
+	 *
+	 * @return \Woocommerce_Category_Slider
+	 * @since 1.0.0
+	 */
+	public static function instance() {
+
+		if ( null === self::$instance ) {
+
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
 }
 
 /**
  * Initialize the plugin
  *
- * @return object
+ * @return Woocommerce_Category_Slider
  */
 function wc_category_slider() {
-    return Woocommerce_Category_Slider::init();
+	return Woocommerce_Category_Slider::instance();
 }
 
 // kick-off

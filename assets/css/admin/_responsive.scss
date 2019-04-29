@@ -1,0 +1,61 @@
+@mixin ever-slide-url {
+	.ever-slide-url {
+		flex-direction: column;
+		flex-wrap: wrap;
+		&-inputbox {
+			width: 100%;
+		}
+		&-checkbox {
+			max-width: 100%;
+			display: flex;
+			margin-top: 10px;
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: center;
+			input {
+				height: 20px;
+				width: 20px;
+			}
+		}
+	}
+}
+
+/**
+*Responsive
+*/
+
+@media only screen and (min-width: 1200px) and (max-width: 1380px) {
+	@include ever-slide-url;
+}
+
+@media only screen and (max-width: 1199px) {
+	.ever-slider-container {
+		width: 100%;
+	}
+
+	@include ever-slide-url;
+}
+
+@media only screen and (max-width: 991px) {
+	.ever-switch {
+		display: flex;
+		.switch-desc {
+			position: absolute;
+			margin-top: 30px;
+		}
+		&-label {
+			width: 40%;
+		}
+	}
+
+	#wc-slider-images {
+
+		@include ever-slide-url;
+
+		.select2-container {
+			.select2-selection--single {
+				width: 100%;
+			}
+		}
+	}
+}

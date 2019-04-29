@@ -1,0 +1,56 @@
+$primary: #2196f3;
+/**
+*Tabs
+*/
+
+.ever-tabs {
+	display: flex;
+	background: linear-gradient(to right, #4481eb 0%, #04befe 100%);;
+	border: 1px solid white;
+	.tab-item {
+		padding: 15px;
+		color: white;
+		font-size: 16px;
+		text-decoration: none;
+		border: 1px solid $primary;
+		border-right-color: white;
+		text-transform: uppercase;
+		transition: all .3s ease-in-out;
+
+		& > span {
+			color: #fff;
+			padding: 8px;
+			border-radius: 50%;
+			background-image: linear-gradient(to right, #4481eb 0%, #04befe 100%);
+		}
+
+		&.active, &:hover {
+			background: white;
+			color: $primary;
+			border: 1px solid $primary;
+			border-left-color: white;
+			&:first-child {
+				border-left-color: $primary;
+			}
+		}
+		&:focus {
+			box-shadow: none;
+		}
+	}
+}
+
+.tab-content {
+	background: white;
+	padding: 20px 15px;
+	&-item {
+		overflow: hidden;
+		display: none;
+		&.active {
+			display: block;
+		}
+
+		.ever-form-group {
+			max-width: 600px;
+		}
+	}
+}

@@ -1,17 +1,15 @@
 <?php
 
-namespace Pluginever\WoocommerceCategorySlider;
-
 /**
  * Tracker class
  */
-class Tracker extends \Pluginever_Insights {
+class WC_Category_Slider_Tracker extends \Pluginever_Insights {
 
     public function __construct() {
 
-        $notice = __( 'Want to help make <strong>WooCommerce Category Slider</strong> even more awesome? Allow PluginEver to collect non-sensitive diagnostic data and usage information.', 'woocatslider' );
+        $notice = __( 'Want to help make <strong>WooCommerce Category Slider</strong> even more awesome? Allow PluginEver to collect non-sensitive diagnostic data and usage information.', 'woo-category-slider-by-pluginever' );
 
-        parent::__construct( 'woo-category-slider-by-pluginever', 'WooCommerce Category Slider', WCS_FILE, $notice );
+        parent::__construct( 'woo-category-slider-by-pluginever', 'WooCommerce Category Slider', WC_CAT_SLIDER_FILE, $notice );
     }
 
     /**
@@ -24,7 +22,7 @@ class Tracker extends \Pluginever_Insights {
             'wc_products'   => $this->get_post_count( 'product' ),
             'wc_categories' => wp_count_terms( 'product_cat' ),
             'shortcodes'    => $this->get_post_count( 'wc_category_slider' ),
-            'is_pro'        => wc_category_slider_is_pro_active() ? 'yes' : 'no',
+            'is_pro'        => wc_category_slider()->is_pro_installed() ? 'yes' : 'no',
         );
 
         return $data;
