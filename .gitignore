@@ -13,6 +13,7 @@ project.properties
 
 # Grunt
 /node_modules/
+package-lock.json
 none
 
 # Sass
