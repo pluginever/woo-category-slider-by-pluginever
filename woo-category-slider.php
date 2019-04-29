@@ -274,7 +274,6 @@ class Woocommerce_Category_Slider {
 	 * since 1.0.0
 	 */
 	private function define_constants() {
-		error_log('define_constants');
 		define( 'WC_CAT_SLIDER_VERSION', $this->version );
 		define( 'WC_CAT_SLIDER_FILE', __FILE__ );
 		define( 'WC_CAT_SLIDER_PATH', dirname( WC_CAT_SLIDER_FILE ) );
