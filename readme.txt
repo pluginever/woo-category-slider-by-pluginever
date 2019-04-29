@@ -123,6 +123,15 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+
+= 4.0.0 =
+[Add] Categories autoload on selection
+[Add] Gutenberg Block
+[Add] Fontawesome Icons support
+[Enhance] Selection with Select2
+[Enhance] Admin UI
+[Compatibility] Gutenberg Compatibility
+
 = 3.1.2 =
 [Compatibility] Compatibility with WooCommerce 3.5.3
 [Compatibility] Compatibility with WordPress 5.0.2
