@@ -78,7 +78,7 @@ class Woocommerce_Category_Slider {
 	protected static $instance = null;
 
 	/**
-	 * @var \Ever_Elements
+	 * @var \WC_Category_Slider_Elements
 	 */
 	public $elements;
 
@@ -100,6 +100,7 @@ class Woocommerce_Category_Slider {
 	 * WCSerialNumbers constructor.
 	 */
 	public function __construct() {
+		register_activation_hook( __FILE__, array( $this, 'activate' ) );
 		register_activation_hook( __FILE__, array( $this, 'activation_check' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 15 );
 		add_action( 'init', array( $this, 'localization_setup' ) );
@@ -109,8 +110,28 @@ class Woocommerce_Category_Slider {
 		if ( $this->is_plugin_compatible() ) {
 			$this->define_constants();
 			$this->includes();
-			$this->elements = new WC_Slider_Elements();
+			$this->elements = new WC_Category_Slider_Elements();
+			$this->tracker  = new WC_Category_Slider_Tracker();
+			new WC_Category_Slider_Install();
 		}
+	}
+
+	/**
+	 * Activate plugin
+	 *
+	 * @since 4.0.0
+	 *
+	 * @return void
+	 */
+	public function activate(){
+		if ( false == get_option( 'woocatslider_install_date' ) ) {
+			update_option( 'woocommerce_category_slider_install_date', current_time( 'timestamp' ) );
+		}else{
+			update_option( 'woocommerce_category_slider_install_date', get_option( 'woocatslider_install_date' ) );
+			delete_option('woocatslider_install_date');
+		}
+
+		update_option( 'wc_category_slider_version', $this->version );
 	}
 
 	/**
@@ -135,9 +156,9 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Determines if the plugin compatible.
 	 *
+	 * @return bool
 	 * @since 1.0.0
 	 *
-	 * @return bool
 	 */
 	protected function is_plugin_compatible() {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -156,10 +177,11 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Adds an admin notice to be displayed.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param string $class the notice class
 	 * @param string $message the notice message body
+	 *
+	 * @since 1.0.0
+	 *
 	 */
 	public function add_notice( $class, $message ) {
 
@@ -199,9 +221,9 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Initialize plugin for localization
 	 *
+	 * @return void
 	 * @since 1.0.0
 	 *
-	 * @return void
 	 */
 	public function localization_setup() {
 		load_plugin_textdomain( 'woo-category-slider-by-pluginever', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
@@ -210,12 +232,12 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Determines if the pro version installed.
 	 *
+	 * @return bool
 	 * @since 1.0.0
 	 *
-	 * @return bool
 	 */
 	public function is_pro_installed() {
-		 return is_plugin_active( 'woocommerce-category-slider-pro/wc-category-slider-pro.php' ) == true;
+		return is_plugin_active( 'woocommerce-category-slider-pro/wc-category-slider-pro.php' ) == true;
 		//todo check and uncomments
 		//return  true;
 	}
@@ -223,7 +245,7 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Plugin action links
 	 *
-	 * @param  array $links
+	 * @param array $links
 	 *
 	 * @return array
 	 */
@@ -240,10 +262,10 @@ class Woocommerce_Category_Slider {
 
 		require_once( WC_CAT_SLIDER_INCLUDES . '/class-upgrades.php' );
 
-        $updater = new WCSN_Updates();
-        if ( $updater->needs_update() ) {
-            $updater->perform_updates();
-        }
+		$updater = new WC_Category_Slider_Updates();
+		if ( $updater->needs_update() ) {
+			$updater->perform_updates();
+		}
 
 	}
 
@@ -253,6 +275,7 @@ class Woocommerce_Category_Slider {
 	 * since 1.0.0
 	 */
 	private function define_constants() {
+		error_log('define_constants');
 		define( 'WC_CAT_SLIDER_VERSION', $this->version );
 		define( 'WC_CAT_SLIDER_FILE', __FILE__ );
 		define( 'WC_CAT_SLIDER_PATH', dirname( WC_CAT_SLIDER_FILE ) );
@@ -273,9 +296,11 @@ class Woocommerce_Category_Slider {
 		require_once( WC_CAT_SLIDER_INCLUDES . '/class-cpt.php' );
 		require_once( WC_CAT_SLIDER_INCLUDES . '/scripts-functions.php' );
 		require_once( WC_CAT_SLIDER_INCLUDES . '/admin/metabox-functions.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-insights.php' );
+		require_once( WC_CAT_SLIDER_INCLUDES . '/class-tracker.php' );
 		//admin
-		if ( ! $this->is_pro_installed() ) {
-			//require_once( WC_CAT_SLIDER_INCLUDES . '/admin/class-promotion.php' );
+		if ( ! $this->is_pro_installed() && is_admin() ) {
+			require_once( WC_CAT_SLIDER_INCLUDES . '/admin/class-promotion.php' );
 		}
 
 	}
@@ -284,8 +309,8 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Returns the plugin loader main instance.
 	 *
-	 * @since 1.0.0
 	 * @return \Woocommerce_Category_Slider
+	 * @since 1.0.0
 	 */
 	public static function instance() {
 
@@ -301,7 +326,7 @@ class Woocommerce_Category_Slider {
 /**
  * Initialize the plugin
  *
- * @return object
+ * @return Woocommerce_Category_Slider
  */
 function wc_category_slider() {
 	return Woocommerce_Category_Slider::instance();

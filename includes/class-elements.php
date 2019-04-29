@@ -1,7 +1,7 @@
 <?php
 
 
-class WC_Slider_Elements {
+class WC_Category_Slider_Elements {
 
 	/**
 	 * Renders an HTML Dropdown of years
@@ -971,4 +971,4 @@ class WC_Slider_Elements {
 
 }
 
-new WC_Slider_Elements();
+new WC_Category_Slider_Elements();

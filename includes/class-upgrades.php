@@ -5,7 +5,7 @@
  *
  * @since 1.0.0
  */
-class WCSN_Updates {
+class WC_Category_Slider_Updates {
 
 	/**
 	 * The upgrades
