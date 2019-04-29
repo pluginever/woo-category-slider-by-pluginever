@@ -29,7 +29,7 @@ function wc_slider_get_categories_ajax_callback() {
 
 	$categories = apply_filters( 'wc_category_slider_categories', $categories, $slider_id );
 	foreach ( $categories as $key => $category ) {
-		$image        = WC_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg';
+		$image        = WC_CAT_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg';
 		$thumbnail_id = $category['image_id'];
 		if ( ! empty( $thumbnail_id ) ) {
 			$attachment = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail' );
@@ -198,7 +198,7 @@ function wc_category_slider_print_js_template() {
 
 			var $parent = jQuery(this).parentsUntil('.ever-slide-thumbnail');
 
-			var $img_prev = $parent.siblings('.img-prev');			var $img_id = $parent.siblings('.img-id');			$img_prev.prop('src', '<?php echo WC_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg'; ?>');			$img_id.val('');
+			var $img_prev = $parent.siblings('.img-prev');			var $img_id = $parent.siblings('.img-id');			$img_prev.prop('src', '<?php echo WC_CAT_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg'; ?>');			$img_id.val('');
 
 			});
 

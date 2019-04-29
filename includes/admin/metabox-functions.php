@@ -39,7 +39,7 @@ add_action( 'add_meta_boxes', 'wc_slider_register_meta_boxes', 10 );
 
 function wc_slider_settings_metabox( $post ) {
 	ob_start();
-	include WC_SLIDER_INCLUDES . '/admin/views/metabox.php';
+	include WC_CAT_SLIDER_INCLUDES . '/admin/views/metabox.php';
 	$html = ob_get_clean();
 	echo $html;
 }

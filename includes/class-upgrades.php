@@ -27,7 +27,7 @@ class WCSN_Updates {
 		}
 
 
-		if ( version_compare( $this->get_version(), WC_SLIDER_VERSION, '>=' ) ) {
+		if ( version_compare( $this->get_version(), WC_CAT_SLIDER_VERSION, '>=' ) ) {
 			return false;
 		}
 
@@ -35,7 +35,7 @@ class WCSN_Updates {
 			return true;
 		}
 
-		if ( version_compare( $this->get_version(), WC_SLIDER_VERSION, '<' ) ) {
+		if ( version_compare( $this->get_version(), WC_CAT_SLIDER_VERSION, '<' ) ) {
 			return true;
 		}
 
@@ -70,7 +70,7 @@ class WCSN_Updates {
 			}
 		}
 
-		update_option( 'wc_category_slider_version', WC_SLIDER_VERSION );
+		update_option( 'wc_category_slider_version', WC_CAT_SLIDER_VERSION );
 	}
 
 }

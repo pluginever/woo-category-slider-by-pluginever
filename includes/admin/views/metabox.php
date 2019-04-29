@@ -50,7 +50,7 @@ $navs = array(
 
 				echo "<div class='tab-content-item {$active}' id='{$template}'>";
 				//=== include meta box template file ===
-				include WC_SLIDER_INCLUDES . "/admin/views/metabox-{$template}.php";
+				include WC_CAT_SLIDER_INCLUDES . "/admin/views/metabox-{$template}.php";
 				echo '</div>';
 
 				$content .= ob_get_clean();

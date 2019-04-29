@@ -34,7 +34,7 @@ class Install{
             delete_option('woocatslider_install_date');
         }
 
-		update_option( 'wc_category_slider_version', WC_SLIDER_VERSION );
+		update_option( 'wc_category_slider_version', WC_CAT_SLIDER_VERSION );
 
 	}
 

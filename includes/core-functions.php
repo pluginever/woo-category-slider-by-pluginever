@@ -731,7 +731,7 @@ function wc_slider_get_icon_list() {
 
 function wc_slider_get_font_list() {
 
-	$fonts = file_get_contents( WC_SLIDER_INCLUDES . '/admin/views/json-google-fonts.php' );
+	$fonts = file_get_contents( WC_CAT_SLIDER_INCLUDES . '/admin/views/json-google-fonts.php' );
 
 	$fonts = wp_list_pluck( json_decode( $fonts )->items, 'family' );
 

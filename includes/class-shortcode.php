@@ -30,12 +30,12 @@ class WC_Category_Slider_Shortcode {
 		</style>
 		<?php
 
-		$files = glob( WC_SLIDER_TEMPLATES . '/*.php' );
+		$files = glob( WC_CAT_SLIDER_TEMPLATES . '/*.php' );
 		foreach ( $files as $file ) {
 			include $file;
 		}
 
-		$file = WC_SLIDER_TEMPLATES . '/' . $attr['template'] . '.php';
+		$file = WC_CAT_SLIDER_TEMPLATES . '/' . $attr['template'] . '.php';
 		if ( file_exists( $file ) ) {
 			include $file;
 		}
