@@ -257,7 +257,7 @@ class Woocommerce_Category_Slider {
 
 	public function init_update() {
 
-		require_once( WC_CAT_SLIDER_INCLUDES . '/class-upgrades.php' );
+		require_once( dirname( __FILE__  ) . '/includes/class-upgrades.php' );
 
 		$updater = new WC_Category_Slider_Updates();
 		if ( $updater->needs_update() ) {
