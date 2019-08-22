@@ -15,6 +15,21 @@ class WC_Category_Slider_Updates {
 	private static $upgrades = array( '4.0.0' => 'updates/update-4.0.0.php' );
 
 	/**
+	 * The $wc_cat_slider_version
+	 *
+	 * @var null
+	 */
+	private $wc_cat_slider_version = null;
+
+	/**
+	 * WC_Category_Slider_Updates constructor.
+	 */
+	public function __construct() {
+
+		$this->wc_cat_slider_version = wc_category_slider()->version;
+	}
+
+	/**
 	 * Check if the plugin needs any update
 	 *
 	 * @return boolean
@@ -27,7 +42,7 @@ class WC_Category_Slider_Updates {
 		}
 
 
-		if ( version_compare( $this->get_version(), WC_CAT_SLIDER_VERSION, '>=' ) ) {
+		if ( version_compare( $this->get_version(), $this->wc_cat_slider_version, '>=' ) ) {
 			return false;
 		}
 
@@ -35,7 +50,7 @@ class WC_Category_Slider_Updates {
 			return true;
 		}
 
-		if ( version_compare( $this->get_version(), WC_CAT_SLIDER_VERSION, '<' ) ) {
+		if ( version_compare( $this->get_version(), $this->wc_cat_slider_version, '<' ) ) {
 			return true;
 		}
 
@@ -70,7 +85,7 @@ class WC_Category_Slider_Updates {
 			}
 		}
 
-		update_option( 'wc_category_slider_version', WC_CAT_SLIDER_VERSION );
+		update_option( 'wc_category_slider_version', $this->wc_cat_slider_version );
 	}
 
 }
