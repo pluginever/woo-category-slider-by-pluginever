@@ -120,6 +120,10 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+= 4.0.3 =
+[Fix] WC compatibility with 3.7.0
+[Fix] Fatal error when woocommerce not installed
+
 = 4.0.2 =
 [Fix] WC compatibility with 3.6.5
 [Fix] WP compatibility with 5.2.2
