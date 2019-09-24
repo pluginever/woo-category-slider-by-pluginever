@@ -14,14 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function wc_slider_load_public_assets( $hook ) {
 
-	wp_register_script( 'wccs-owlcarousel', WC_CAT_SLIDER_ASSETS_URL . "/vendor/owlcarousel/owl.carousel.js", [ 'jquery' ], WC_CAT_SLIDER_VERSION, true );
+	wp_register_script( 'wccs-owl-carousel', WC_CAT_SLIDER_ASSETS_URL . "/vendor/owlcarousel/owl.carousel.js", [ 'jquery' ], WC_CAT_SLIDER_VERSION, true );
 	wp_register_script( 'imagesLoaded', WC_CAT_SLIDER_ASSETS_URL . "/vendor/imagesLoaded.min.js", [
 		'jquery',
-		'wccs-owlcarousel'
+		'wccs-owl-carousel'
 	], date( 'i' ), true );
 	wp_register_script( 'wc-category-slider', WC_CAT_SLIDER_ASSETS_URL . "/js/wc-category-slider-public.min.js", [
 		'jquery',
-		'wccs-owlcarousel',
+		'wccs-owl-carousel',
 		'imagesLoaded',
 	], date( 'i' ), true );
 	wp_register_style( 'wccs-owlcarousel', WC_CAT_SLIDER_ASSETS_URL . "/vendor/owlcarousel/assets/owl.carousel.css", [], WC_CAT_SLIDER_VERSION );
