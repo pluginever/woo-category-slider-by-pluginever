@@ -16,7 +16,7 @@ Showcase Your WooCommerce powered store's categories/subcategories in a more app
 
 WooCommerce Category Slider plugin by PluginEver provides you the opportunity of showing WooCommerce product categories in a slider. You can show your product categories in a modern looking and descriptive slider that show details of your category. WooCommerce Category Slider plugin has lots of features that allows you to control the slider and its content.
 
->[DEMO](https://demo.pluginever.com/wc-category-slider/) |  [Get The PRO Version](https://www.pluginever.com/plugins/woo-category-slider/)  |  [Support](https://www.pluginever.com/support/)  |  [Documentation ](https://www.pluginever.com/docs/woocommerce-category-slider/)
+>[DEMO](http://demo.pluginever.com/wc-category-slider/) |  [Get The PRO Version](https://www.pluginever.com/plugins/woo-category-slider/)  |  [Support](https://www.pluginever.com/support/)  |  [Documentation ](https://www.pluginever.com/docs/woocommerce-category-slider/)
 
 
 == Why Would You Need WooCommerce Category Slider ==
