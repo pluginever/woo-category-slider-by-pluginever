@@ -8,6 +8,14 @@ echo wc_category_slider()->elements->switcher( array(
 	'desc'           => __( 'Slider will automatically start playing is set Yes.', 'woo-category-slider-by-pluginever' ),
 ) );
 
+echo wc_category_slider()->elements->switcher( array(
+	'name'           => 'rtl',
+	'label'          => __( 'Slider RTL', 'woo-category-slider-by-pluginever' ),
+	'double_columns' => true,
+	'value'          => wc_category_slider_get_meta( $post->ID, 'rtl', 'yes' ),
+	'desc'           => __( 'Slider direction from Right to left is set Yes.', 'woo-category-slider-by-pluginever' ),
+) );
+
 echo wc_get_metabox_promo_text();
 
 echo wc_category_slider()->elements->switcher( apply_filters( 'wc_category_slider_lazy_load_args', array(

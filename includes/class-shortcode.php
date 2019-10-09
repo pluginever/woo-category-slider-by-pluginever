@@ -118,7 +118,8 @@ class WC_Category_Slider_Shortcode {
 
 		?>
 
-	<div class="wc-category-slider <?php echo $wrapper_class; ?>" id="<?php echo 'wc-category-slider-' . $post_id ?>" data-slider-config='<?php echo $this->get_slider_config( $post_id ); ?>'>
+	<div class="wc-category-slider <?php echo $wrapper_class; ?>" id="<?php echo 'wc-category-slider-' . $post_id ?>"
+	     data-slider-config='<?php echo $this->get_slider_config( $post_id ); ?>'>
 
 		<?php
 
@@ -129,7 +130,7 @@ class WC_Category_Slider_Shortcode {
 
 		//=== Slider Components ===
 		if ( 'on' != $hide_image ) {
-			$image = sprintf( '<div class="wc-slide-image-wrapper"><a class="wc-slide-link" href="%s">%s</a></div>', $term['url'], ! empty( $term['image_id'] ) ? wp_get_attachment_image( $term['image_id'], $image_size, '', array( 'class' => $image_size ) ) : '<img class="default" src="'.WC_CAT_SLIDER_ASSETS_URL.'/images/placeholder.png">'  );
+			$image = sprintf( '<div class="wc-slide-image-wrapper"><a class="wc-slide-link" href="%s">%s</a></div>', $term['url'], ! empty( $term['image_id'] ) ? wp_get_attachment_image( $term['image_id'], $image_size, '', array( 'class' => $image_size ) ) : '<img class="default" src="' . WC_CAT_SLIDER_ASSETS_URL . '/images/placeholder.png">' );
 		} else {
 			$image = '';
 		}
@@ -310,6 +311,7 @@ class WC_Category_Slider_Shortcode {
 		$config = array(
 			'dots'               => 'off' == wc_category_slider_get_meta( $post_id, 'hide_paginate', 'off' ) ? true : false,
 			'autoHeight'         => true,
+			'rtl'                => 'on' == wc_category_slider_get_meta( $post_id, 'rtl' ) ? true : false,
 			'singleItem'         => true,
 			'autoplay'           => 'on' == wc_category_slider_get_meta( $post_id, 'autoplay' ) ? true : false,
 			'loop'               => 'on' == wc_category_slider_get_meta( $post_id, 'loop' ) ? true : false,

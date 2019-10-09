@@ -233,6 +233,7 @@ function wc_category_slider_update_settings( $post_id ) {
 	update_post_meta( $post_id, 'hover_style', empty( $posted['hover_style'] ) ? '' : sanitize_key( $posted['hover_style'] ) );
 	update_post_meta( $post_id, 'theme', empty( $posted['theme'] ) ? '' : sanitize_key( $posted['theme'] ) );
 	update_post_meta( $post_id, 'autoplay', empty( $posted['autoplay'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'rtl', empty( $posted['rtl'] ) ? 'off' : 'on' );
 
 	do_action( 'wc_category_slider_settings_update', $post_id, $posted );
 
