@@ -236,7 +236,7 @@ class Woocommerce_Category_Slider {
 	 *
 	 */
 	public function is_pro_installed() {
-		return is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) == true;
+		return is_plugin_active( 'woocommerce-category-slider-pro/wc-category-slider-pro.php' ) == true;
 	}
 
 	/**
