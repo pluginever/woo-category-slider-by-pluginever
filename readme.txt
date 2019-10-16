@@ -2,7 +2,7 @@
 Contributors: manikmist09,pluginever
 Tags: WooCommerce Category Slider, WooCommerce Product Category Slider , WooCommerce, Slider, Category Slider, Slider, Category Details, woo, commerce, e-commerce, ecommerce, gallery, pluginever, product, shop, WooCommerce Category, WooCommerce Slider,WooCommerce Product Category Slider
 Requires at least: 4.4
-Tested up to: 5.2.3
+Tested up to: 5.2.4
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -16,7 +16,7 @@ Showcase Your WooCommerce powered store's categories/subcategories in a more app
 
 WooCommerce Category Slider plugin by PluginEver provides you the opportunity of showing WooCommerce product categories in a slider. You can show your product categories in a modern looking and descriptive slider that show details of your category. WooCommerce Category Slider plugin has lots of features that allows you to control the slider and its content.
 
->[DEMO](https://demo.pluginever.com/wc-category-slider/) |  [Get The PRO Version](https://www.pluginever.com/plugins/woo-category-slider/)  |  [Support](https://www.pluginever.com/support/)  |  [Documentation ](https://www.pluginever.com/docs/woocommerce-category-slider/)
+>[DEMO](http://demo.pluginever.com/wc-category-slider/) |  [Get The PRO Version](https://www.pluginever.com/plugins/woo-category-slider/)  |  [Support](https://www.pluginever.com/support/)  |  [Documentation ](https://www.pluginever.com/docs/woocommerce-category-slider/)
 
 
 == Why Would You Need WooCommerce Category Slider ==
@@ -120,6 +120,13 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+
+= 4.0.4 =
+[Add] Slide direction from Right to left
+[Fix] Creates warning as pop-up when create/update slider
+[Fix] WC compatibility with 3.7.1
+[Fix] WP compatibility with 5.2.4
+
 = 4.0.3 =
 [Fix] WC compatibility with 3.7.0
 [Fix] WP compatibility with 5.2.3

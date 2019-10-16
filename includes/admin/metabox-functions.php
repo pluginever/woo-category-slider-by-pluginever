@@ -152,15 +152,22 @@ function wc_slider_render_category_settings_metabox( $post ) {
 	$action = empty( $_GET['action'] ) ? '' : esc_attr( $_GET['action'] );
 
 	?>
-	<input type="hidden" name="hidden_post_status" id="hidden_post_status" value="publish"/>
-
-	<?php if ( $action !== 'edit' ) { ?>
-		<input name="original_publish" type="hidden" id="original_publish" value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ) ?>"/>
-		<?php submit_button( __( 'Create Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large', 'publish', false ); ?><?php
-	} else { ?>
-		<input name="original_publish" type="hidden" id="original_publish" value="publish"/>
-		<?php submit_button( __( 'Update Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large', 'publish', false );
-	}
+	<div id="submitpost" class="submitbox ever-submitbox">
+		<input type="hidden" name="hidden_post_status" id="hidden_post_status" value="publish"/>
+		<div id="publishing-action">
+			<span class="spinner"></span>
+			<?php if ( $action !== 'edit' ) { ?>
+				<input name="original_publish" type="hidden" id="original_publish"
+				       value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ) ?>"/>
+				<?php submit_button( __( 'Create Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false ); ?><?php
+			} else { ?>
+				<input name="original_publish" type="hidden" id="original_publish" value="publish"/>
+				<?php submit_button( __( 'Update Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false );
+			}
+			?>
+		</div>
+	</div>
+	<?php
 
 }
 
@@ -190,11 +197,11 @@ function wc_category_slider_update_settings( $post_id ) {
 	}
 
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-		return false;
+		return $post_id;
 	}
 
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return false;
+		return $post_id;
 	}
 
 	//save post meta
@@ -233,6 +240,7 @@ function wc_category_slider_update_settings( $post_id ) {
 	update_post_meta( $post_id, 'hover_style', empty( $posted['hover_style'] ) ? '' : sanitize_key( $posted['hover_style'] ) );
 	update_post_meta( $post_id, 'theme', empty( $posted['theme'] ) ? '' : sanitize_key( $posted['theme'] ) );
 	update_post_meta( $post_id, 'autoplay', empty( $posted['autoplay'] ) ? 'off' : 'on' );
+	update_post_meta( $post_id, 'rtl', empty( $posted['rtl'] ) ? 'off' : 'on' );
 
 	do_action( 'wc_category_slider_settings_update', $post_id, $posted );
 
