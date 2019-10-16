@@ -2,10 +2,10 @@
 # This file is distributed under the GPLv2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Category Slider 4.0.3\n"
+"Project-Id-Version: WooCommerce Category Slider 4.0.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/woocommerce-category-slider\n"
-"POT-Creation-Date: 2019-09-24 10:17:29+00:00\n"
+"POT-Creation-Date: 2019-10-16 09:58:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,19 +99,19 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:158
+#: includes/admin/metabox-functions.php:161
 msgid "Publish"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:159
+#: includes/admin/metabox-functions.php:162
 msgid "Create Slider"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:162
+#: includes/admin/metabox-functions.php:165
 msgid "Update Slider"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:174
+#: includes/admin/metabox-functions.php:181
 msgid "Use the shortocode to render the slider anywhere in the page or post."
 msgstr ""
 
@@ -368,63 +368,71 @@ msgstr ""
 msgid "Slider will automatically start playing is set Yes."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:15
-msgid "Lazy Load"
+#: includes/admin/views/metabox-slider-settings.php:13
+msgid "Slider RTL"
+msgstr ""
+
+#: includes/admin/views/metabox-slider-settings.php:16
+msgid "Slider direction from Right to left is set Yes."
 msgstr ""
 
 #: includes/admin/views/metabox-slider-settings.php:23
+msgid "Lazy Load"
+msgstr ""
+
+#: includes/admin/views/metabox-slider-settings.php:31
 msgid "Number of Column (Desktop)"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:26
+#: includes/admin/views/metabox-slider-settings.php:34
 msgid "The number of slide for desktop screen."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:32
+#: includes/admin/views/metabox-slider-settings.php:40
 msgid "Number of Column (Tablet)"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:35
+#: includes/admin/views/metabox-slider-settings.php:43
 msgid "The number of slide for tablet screen."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:41
+#: includes/admin/views/metabox-slider-settings.php:49
 msgid "Number of Column (Phone)"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:44
+#: includes/admin/views/metabox-slider-settings.php:52
 msgid "The number of slide for mobile screen."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:49
+#: includes/admin/views/metabox-slider-settings.php:57
 msgid "AutoPlay Speed"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:53
+#: includes/admin/views/metabox-slider-settings.php:61
 msgid "The slide auto playing time in millisecond."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:58
+#: includes/admin/views/metabox-slider-settings.php:66
 msgid "Slider Speed"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:62
+#: includes/admin/views/metabox-slider-settings.php:70
 msgid "The interval time of the slide change in millisecond."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:67
+#: includes/admin/views/metabox-slider-settings.php:75
 msgid "Loop"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:69
+#: includes/admin/views/metabox-slider-settings.php:77
 msgid "Switch On/ Off the slider loop"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:75
+#: includes/admin/views/metabox-slider-settings.php:83
 msgid "Column Gap"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:78
+#: includes/admin/views/metabox-slider-settings.php:86
 msgid "Space between the slide in pixel unit. Default: 10px"
 msgstr ""
 
