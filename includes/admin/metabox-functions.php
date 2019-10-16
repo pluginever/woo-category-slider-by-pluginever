@@ -152,15 +152,22 @@ function wc_slider_render_category_settings_metabox( $post ) {
 	$action = empty( $_GET['action'] ) ? '' : esc_attr( $_GET['action'] );
 
 	?>
-	<input type="hidden" name="hidden_post_status" id="hidden_post_status" value="publish"/>
-
-	<?php if ( $action !== 'edit' ) { ?>
-		<input name="original_publish" type="hidden" id="original_publish" value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ) ?>"/>
-		<?php submit_button( __( 'Create Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large', 'publish', false ); ?><?php
-	} else { ?>
-		<input name="original_publish" type="hidden" id="original_publish" value="publish"/>
-		<?php submit_button( __( 'Update Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large', 'publish', false );
-	}
+	<div id="submitpost" class="submitbox ever-submitbox">
+		<input type="hidden" name="hidden_post_status" id="hidden_post_status" value="publish"/>
+		<div id="publishing-action">
+			<span class="spinner"></span>
+			<?php if ( $action !== 'edit' ) { ?>
+				<input name="original_publish" type="hidden" id="original_publish"
+				       value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ) ?>"/>
+				<?php submit_button( __( 'Create Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false ); ?><?php
+			} else { ?>
+				<input name="original_publish" type="hidden" id="original_publish" value="publish"/>
+				<?php submit_button( __( 'Update Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false );
+			}
+			?>
+		</div>
+	</div>
+	<?php
 
 }
 
@@ -190,11 +197,11 @@ function wc_category_slider_update_settings( $post_id ) {
 	}
 
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-		return false;
+		return $post_id;
 	}
 
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return false;
+		return $post_id;
 	}
 
 	//save post meta
