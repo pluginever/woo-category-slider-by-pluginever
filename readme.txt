@@ -120,6 +120,8 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+= 4.0.5 =
+[Fix] Persistent upgrade to pro
 
 = 4.0.4 =
 [Add] Slide direction from Right to left
