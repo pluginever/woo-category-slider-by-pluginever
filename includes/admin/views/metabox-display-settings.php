@@ -111,6 +111,14 @@ echo wc_category_slider()->elements->input( apply_filters( 'wc_category_slider_b
 	'desc'        => __( 'Text for the slide button', 'woo-category-slider-by-pluginever' ),
 ), $post->ID ) );
 
+echo wc_category_slider()->elements->input( apply_filters( 'wc_category_slider_product_text_args', array(
+	'name'        => 'custom_product_text',
+	'label'       => __( 'Custom Text', 'woo-category-slider-by-pluginever' ),
+	'placeholder' => __( 'Products', 'woo-category-slider-by-pluginever' ),
+	'disabled'    => 'disabled',
+	'desc'        => __( "Replace 'products' with custom text ", 'woo-category-slider-by-pluginever' ),
+), $post->ID ) );
+
 echo wc_category_slider()->elements->select( apply_filters( 'wc_category_slider_button_type_args', array(
 	'name'             => 'button_type',
 	'label'            => __( 'Button Type', 'woo-category-slider-by-pluginever' ),
