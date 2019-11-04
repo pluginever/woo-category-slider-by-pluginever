@@ -68,6 +68,7 @@ class WC_Category_Slider_Shortcode {
 		$hide_image          = wc_category_slider_get_meta( $post_id, 'hide_image', 'off' );
 		$hide_content        = wc_category_slider_get_meta( $post_id, 'hide_content', 'off' );
 		$show_desc           = wc_category_slider_get_meta( $post_id, 'show_desc', 'off' );
+		$word_limit          = intval( wc_category_slider_get_meta( $post_id, 'word_limit' ) );
 		$hide_count          = wc_category_slider_get_meta( $post_id, 'hide_count', 'off' );
 		$hide_border         = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
 		$hide_button         = wc_category_slider_get_meta( $post_id, 'hide_button', 'off' );
@@ -171,9 +172,12 @@ class WC_Category_Slider_Shortcode {
 
 			$child_terms .= '</ul>';
 		}
-
-		$description = $show_desc == 'on' && ! empty( $term['description'] ) ? sprintf( '<p class="wc-slide-description">%s</p>', $term['description'] ) : '';
-		$button      = $hide_button != 'on' ? sprintf( '<a href="%s" class="wc-slide-button">%s</a>', esc_url( $term['url'] ), $button_text ) : '';
+		$description = '';
+		if ( $show_desc == 'on' && ! empty( $term['description'] ) ) {
+			$trim_desc   = $word_limit > 1 ? wp_trim_words( $term['description'], $word_limit, '' ) : $term['description'];
+			$description = sprintf( '<p class="wc-slide-description">%s</p>', $trim_desc );
+		}
+		$button = $hide_button != 'on' ? sprintf( '<a href="%s" class="wc-slide-button">%s</a>', esc_url( $term['url'] ), $button_text ) : '';
 
 		?>
 
