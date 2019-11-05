@@ -120,6 +120,11 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+
+= 4.0.6 =
+[Enhance] Display setting
+[Fix] Slider image broken
+
 = 4.0.5 =
 [Fix] Persistent upgrade to pro
 
