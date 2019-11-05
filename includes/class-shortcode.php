@@ -57,25 +57,27 @@ class WC_Category_Slider_Shortcode {
 
 		$selected_categories = 'all';
 
-		$theme          = wc_category_slider_get_meta( $post_id, 'theme', 'default' );
-		$selection_type = wc_category_slider_get_meta( $post_id, 'selection_type', 'all' );
-		$limit_number   = wc_category_slider_get_meta( $post_id, 'limit_number', '10' );
-		$orderby        = wc_category_slider_get_meta( $post_id, 'orderby', 'name' );
-		$order          = wc_category_slider_get_meta( $post_id, 'order', 'asc' );
-		$include_child  = wc_category_slider_get_meta( $post_id, 'include_child', 'on' );
-		$hide_empty     = wc_category_slider_get_meta( $post_id, 'hide_empty', 'on' );
-		$hide_name      = wc_category_slider_get_meta( $post_id, 'hide_name', 'off' );
-		$hide_image     = wc_category_slider_get_meta( $post_id, 'hide_image', 'off' );
-		$hide_content   = wc_category_slider_get_meta( $post_id, 'hide_content', 'off' );
-		$show_desc      = wc_category_slider_get_meta( $post_id, 'show_desc', 'off' );
-		$hide_count     = wc_category_slider_get_meta( $post_id, 'hide_count', 'off' );
-		$hide_border    = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
-		$hide_button    = wc_category_slider_get_meta( $post_id, 'hide_button', 'off' );
-		$hide_icon      = wc_category_slider_get_meta( $post_id, 'hide_icon', 'off' );
-		$button_text    = wc_category_slider_get_meta( $post_id, 'button_text', __( 'Shop Now', 'woo-category-slider-by-pluginever' ) );
-		$hover_style    = wc_category_slider_get_meta( $post_id, 'hover_style', 'hover-zoom-in' );
-		$icon_size      = wc_category_slider_get_meta( $post_id, 'icon_size', '2x' );
-		$image_size     = wc_category_slider_get_meta( $post_id, 'image_size', 'default' );
+		$theme               = wc_category_slider_get_meta( $post_id, 'theme', 'default' );
+		$selection_type      = wc_category_slider_get_meta( $post_id, 'selection_type', 'all' );
+		$limit_number        = wc_category_slider_get_meta( $post_id, 'limit_number', '10' );
+		$orderby             = wc_category_slider_get_meta( $post_id, 'orderby', 'name' );
+		$order               = wc_category_slider_get_meta( $post_id, 'order', 'asc' );
+		$include_child       = wc_category_slider_get_meta( $post_id, 'include_child', 'on' );
+		$hide_empty          = wc_category_slider_get_meta( $post_id, 'hide_empty', 'on' );
+		$hide_name           = wc_category_slider_get_meta( $post_id, 'hide_name', 'off' );
+		$hide_image          = wc_category_slider_get_meta( $post_id, 'hide_image', 'off' );
+		$hide_content        = wc_category_slider_get_meta( $post_id, 'hide_content', 'off' );
+		$show_desc           = wc_category_slider_get_meta( $post_id, 'show_desc', 'off' );
+		$word_limit          = intval( wc_category_slider_get_meta( $post_id, 'word_limit' ) );
+		$hide_count          = wc_category_slider_get_meta( $post_id, 'hide_count', 'off' );
+		$hide_border         = wc_category_slider_get_meta( $post_id, 'hide_border', 'off' );
+		$hide_button         = wc_category_slider_get_meta( $post_id, 'hide_button', 'off' );
+		$hide_icon           = wc_category_slider_get_meta( $post_id, 'hide_icon', 'off' );
+		$button_text         = wc_category_slider_get_meta( $post_id, 'button_text', __( 'Shop Now', 'woo-category-slider-by-pluginever' ) );
+		$custom_product_text = wc_category_slider_get_meta( $post_id, 'custom_product_text', __( 'Products', 'woo-category-slider-by-pluginever' ) );
+		$hover_style         = wc_category_slider_get_meta( $post_id, 'hover_style', 'hover-zoom-in' );
+		$icon_size           = wc_category_slider_get_meta( $post_id, 'icon_size', '2x' );
+		$image_size          = wc_category_slider_get_meta( $post_id, 'image_size', 'default' );
 
 		if ( 'all' != $selection_type ) {
 			$selected_category_ids = wc_category_slider_get_meta( $post_id, 'selected_categories', [] );
@@ -148,7 +150,7 @@ class WC_Category_Slider_Shortcode {
 		}
 
 		if ( 'on' != $hide_count ) {
-			$count = sprintf( '<span class="wc-slide-product-count">%s</span>', __( sprintf( '<span>%s</span> Products', $term['count'] ), 'woo-category-slider-by-pluginever' ) );
+			$count = sprintf( '<span class="wc-slide-product-count">%s</span>', __( sprintf( '<span>%s</span> %s', $term['count'], $custom_product_text ), 'woo-category-slider-by-pluginever' ) );
 		} else {
 			$count = '';
 		}
@@ -170,9 +172,12 @@ class WC_Category_Slider_Shortcode {
 
 			$child_terms .= '</ul>';
 		}
-
-		$description = $show_desc == 'on' && ! empty( $term['description'] ) ? sprintf( '<p class="wc-slide-description">%s</p>', $term['description'] ) : '';
-		$button      = $hide_button != 'on' ? sprintf( '<a href="%s" class="wc-slide-button">%s</a>', esc_url( $term['url'] ), $button_text ) : '';
+		$description = '';
+		if ( $show_desc == 'on' && ! empty( $term['description'] ) ) {
+			$trim_desc   = $word_limit > 1 ? wp_trim_words( $term['description'], $word_limit, '' ) : $term['description'];
+			$description = sprintf( '<p class="wc-slide-description">%s</p>', $trim_desc );
+		}
+		$button = $hide_button != 'on' ? sprintf( '<a href="%s" class="wc-slide-button">%s</a>', esc_url( $term['url'] ), $button_text ) : '';
 
 		?>
 

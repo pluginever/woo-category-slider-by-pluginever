@@ -161,8 +161,8 @@ function wc_slider_render_category_settings_metabox( $post ) {
 				       value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ) ?>"/>
 				<?php submit_button( __( 'Create Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false ); ?><?php
 			} else { ?>
-				<input name="original_publish" type="hidden" id="original_publish" value="publish"/>
-				<?php submit_button( __( 'Update Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false );
+				<input name="original_publish" type="hidden" id="original_publish" value="Update"/>
+				<?php submit_button( __( 'Update Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'save', false );
 			}
 			?>
 		</div>

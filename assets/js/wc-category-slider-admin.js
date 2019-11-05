@@ -16,6 +16,7 @@ jQuery(document).ready(function ($, window, document, undefined) {
 		init: function () {
 			$('#selection_type, #selected_categories, #limit_number, #include_child, #hide_empty, #orderby, #order').on('change', this.regenerateSlides);
 			$('#selection_type').on('change', this.handleSelectionType);
+			$('#show_desc').on('change', this.handleDescriptionwordLimit);
 			$('#shortcode').click(this.selectShortcode);
 		},
 
@@ -63,6 +64,15 @@ jQuery(document).ready(function ($, window, document, undefined) {
 
 		},
 
+		handleDescriptionwordLimit: function () {
+			if ($('#show_desc').is(':checked')) {
+				$('.ever-row.word_limit_field').show();
+			} else {
+				$('.ever-row.word_limit_field').hide();
+			}
+
+		},
+
 		selectShortcode: function () {
 			$(this).select();
 		}
@@ -70,6 +80,7 @@ jQuery(document).ready(function ($, window, document, undefined) {
 	};
 
 	$.wc_category_slider_admin.init();
+	$.wc_category_slider_admin.handleDescriptionwordLimit();
 	$.wc_category_slider_admin.handleSelectionType();
 	$.wc_category_slider_admin.regenerateSlides();
 	$('.select-2').select2();

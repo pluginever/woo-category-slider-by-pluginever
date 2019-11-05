@@ -355,6 +355,8 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('zip',
 		[
+			'clean',
+			'copy',
 			'compress'
 		]);
 };

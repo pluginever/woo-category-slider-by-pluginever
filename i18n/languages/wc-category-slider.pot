@@ -2,10 +2,10 @@
 # This file is distributed under the GPLv2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Category Slider 4.0.5\n"
+"Project-Id-Version: WooCommerce Category Slider 4.0.6\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/woocommerce-category-slider\n"
-"POT-Creation-Date: 2019-10-24 11:43:37+00:00\n"
+"POT-Creation-Date: 2019-11-05 10:58:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Category Settings"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:31 includes/class-cpt.php:76
+#: includes/admin/metabox-functions.php:31 includes/class-cpt.php:77
 msgid "Shortcode"
 msgstr ""
 
@@ -220,7 +220,7 @@ msgid "Button Text"
 msgstr ""
 
 #: includes/admin/views/metabox-display-settings.php:109
-#: includes/class-shortcode.php:75
+#: includes/class-shortcode.php:76
 msgid "Shop Now"
 msgstr ""
 
@@ -229,110 +229,131 @@ msgid "Text for the slide button"
 msgstr ""
 
 #: includes/admin/views/metabox-display-settings.php:116
-msgid "Button Type"
+msgid "Custom Text"
+msgstr ""
+
+#: includes/admin/views/metabox-display-settings.php:117
+#: includes/class-shortcode.php:77
+msgid "Products"
+msgstr ""
+
+#: includes/admin/views/metabox-display-settings.php:119
+msgid "Replace 'products' with custom text "
 msgstr ""
 
 #: includes/admin/views/metabox-display-settings.php:124
+msgid "Button Type"
+msgstr ""
+
+#: includes/admin/views/metabox-display-settings.php:132
 msgid "Choose button type."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:136
+#: includes/admin/views/metabox-display-settings.php:139
 msgid "Show Category Description"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:137
+#: includes/admin/views/metabox-display-settings.php:140
 msgid "Show/ Hide category description"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:143
+#: includes/admin/views/metabox-display-settings.php:146
+msgid "Word Limit"
+msgstr ""
+
+#: includes/admin/views/metabox-display-settings.php:149
+msgid "Category description word limit"
+msgstr ""
+
+#: includes/admin/views/metabox-display-settings.php:154
 msgid "Button Background"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:144
+#: includes/admin/views/metabox-display-settings.php:155
 msgid "Choose color for button background."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:150
+#: includes/admin/views/metabox-display-settings.php:161
 msgid "Button Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:151
+#: includes/admin/views/metabox-display-settings.php:162
 msgid "Choose color for button."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:157
+#: includes/admin/views/metabox-display-settings.php:168
 msgid "Category Name Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:158
+#: includes/admin/views/metabox-display-settings.php:169
 msgid "Choose color for category name."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:164
+#: includes/admin/views/metabox-display-settings.php:175
 msgid "Icon Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:166
+#: includes/admin/views/metabox-display-settings.php:177
 msgid "Choose color for icon."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:170
+#: includes/admin/views/metabox-display-settings.php:181
 msgid "Icon Size"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:175
+#: includes/admin/views/metabox-display-settings.php:186
 msgid "Choose size for icons."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:192
+#: includes/admin/views/metabox-display-settings.php:203
 msgid "Description Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:194
+#: includes/admin/views/metabox-display-settings.php:205
 msgid "Choose color for category description."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:199
+#: includes/admin/views/metabox-display-settings.php:210
 msgid "Product Count Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:201
+#: includes/admin/views/metabox-display-settings.php:212
 msgid "Choose color for prodcut count number."
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:206
+#: includes/admin/views/metabox-display-settings.php:217
 msgid "Children Category Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:212
+#: includes/admin/views/metabox-display-settings.php:223
 msgid "Content Background Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:218
+#: includes/admin/views/metabox-display-settings.php:229
 msgid "Border Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:224
+#: includes/admin/views/metabox-display-settings.php:235
 msgid "Border Hover Color"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:230
+#: includes/admin/views/metabox-display-settings.php:241
 msgid "Border Width"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:233
+#: includes/admin/views/metabox-display-settings.php:244
 msgid "Unit is in px. only input number"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:242
+#: includes/admin/views/metabox-display-settings.php:253
 msgid "Image Size"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:252
+#: includes/admin/views/metabox-display-settings.php:263
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/admin/views/metabox-display-settings.php:256
+#: includes/admin/views/metabox-display-settings.php:267
 msgid "Add Custom CSS"
 msgstr ""
 
@@ -440,56 +461,95 @@ msgstr ""
 msgid "%s"
 msgstr ""
 
-#: includes/class-cpt.php:32
+#: includes/class-cpt.php:33
 msgid "Add New Slider"
 msgstr ""
 
-#: includes/class-cpt.php:33
+#: includes/class-cpt.php:34
 msgid "New Slider"
 msgstr ""
 
-#: includes/class-cpt.php:34
+#: includes/class-cpt.php:35
 msgid "Edit Slider"
 msgstr ""
 
-#: includes/class-cpt.php:35
+#: includes/class-cpt.php:36
 msgid "View Slider"
 msgstr ""
 
-#: includes/class-cpt.php:36
+#: includes/class-cpt.php:37
 msgid "All Sliders"
 msgstr ""
 
-#: includes/class-cpt.php:37
+#: includes/class-cpt.php:38
 msgid "Search Slider"
 msgstr ""
 
-#: includes/class-cpt.php:38
+#: includes/class-cpt.php:39
 msgid "Parent Slider:"
 msgstr ""
 
-#: includes/class-cpt.php:39
+#: includes/class-cpt.php:40
 msgid "No Slider found."
 msgstr ""
 
-#: includes/class-cpt.php:40
+#: includes/class-cpt.php:41
 msgid "No Slider found in Trash."
 msgstr ""
 
-#: includes/class-cpt.php:41
+#: includes/class-cpt.php:42
 msgid "Slider published."
 msgstr ""
 
-#: includes/class-cpt.php:42
+#: includes/class-cpt.php:43
 msgid "Slider updated."
 msgstr ""
 
-#: includes/class-cpt.php:47
+#: includes/class-cpt.php:48
 msgid "Description."
 msgstr ""
 
-#: includes/class-cpt.php:77
+#: includes/class-cpt.php:78
 msgid "Date"
+msgstr ""
+
+#: includes/class-cpt.php:105
+msgid "Slider updated!"
+msgstr ""
+
+#: includes/class-cpt.php:106
+msgid "Custom field updated."
+msgstr ""
+
+#: includes/class-cpt.php:107
+msgid "Custom field deleted."
+msgstr ""
+
+#: includes/class-cpt.php:108
+msgid "Category slider updated."
+msgstr ""
+
+#: includes/class-cpt.php:110
+#. translators: %s: date and time of the revision
+msgid "Page restored to revision from %s."
+msgstr ""
+
+#: includes/class-cpt.php:111
+msgid ""
+"<span style=\"color:#3eabf8\" class=\"dashicons "
+"dashicons-buddicons-groups\"></span> Your amazing slider is ready!"
+msgstr ""
+
+#: includes/class-cpt.php:112
+msgid "Category slider saved."
+msgstr ""
+
+#: includes/class-cpt.php:113
+msgid "Category slider submitted."
+msgstr ""
+
+#: includes/class-cpt.php:115
+msgid "Category slider draft."
 msgstr ""
 
 #: includes/class-elements.php:59
@@ -611,8 +671,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Showcase Your WooCommerce powered Shop's category in a more appealing way "
-"to expand your sell."
+"Showcase product categories in the most appealing way. Create an instant "
+"impression & trigger purchase intention."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -623,27 +683,27 @@ msgstr ""
 msgid "http://pluginever.com"
 msgstr ""
 
-#: includes/class-cpt.php:27
+#: includes/class-cpt.php:28
 msgctxt "post type general name"
 msgid "WooCommerce Category Slider Shortcode"
 msgstr ""
 
-#: includes/class-cpt.php:28
+#: includes/class-cpt.php:29
 msgctxt "post type singular name"
 msgid "WooCommerce Category Slider"
 msgstr ""
 
-#: includes/class-cpt.php:29
+#: includes/class-cpt.php:30
 msgctxt "admin menu"
 msgid "WC Cat Slider"
 msgstr ""
 
-#: includes/class-cpt.php:30
+#: includes/class-cpt.php:31
 msgctxt "add new on admin bar"
 msgid "WooCommerce Category Slider"
 msgstr ""
 
-#: includes/class-cpt.php:31
+#: includes/class-cpt.php:32
 msgctxt "book"
 msgid "Add New"
 msgstr ""

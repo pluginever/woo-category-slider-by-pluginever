@@ -111,6 +111,14 @@ echo wc_category_slider()->elements->input( apply_filters( 'wc_category_slider_b
 	'desc'        => __( 'Text for the slide button', 'woo-category-slider-by-pluginever' ),
 ), $post->ID ) );
 
+echo wc_category_slider()->elements->input( apply_filters( 'wc_category_slider_product_text_args', array(
+	'name'        => 'custom_product_text',
+	'label'       => __( 'Custom Text', 'woo-category-slider-by-pluginever' ),
+	'placeholder' => __( 'Products', 'woo-category-slider-by-pluginever' ),
+	'disabled'    => 'disabled',
+	'desc'        => __( "Replace 'products' with custom text ", 'woo-category-slider-by-pluginever' ),
+), $post->ID ) );
+
 echo wc_category_slider()->elements->select( apply_filters( 'wc_category_slider_button_type_args', array(
 	'name'             => 'button_type',
 	'label'            => __( 'Button Type', 'woo-category-slider-by-pluginever' ),
@@ -125,17 +133,20 @@ echo wc_category_slider()->elements->select( apply_filters( 'wc_category_slider_
 
 ), $post->ID ) );
 
-//echo wc_category_slider()->elements->switcher( apply_filters( 'wc_category_slider_animate_border_args', array(
-//	'name'     => 'animate_border',
-//	'label'    => __( 'Animate Border', 'woo-category-slider-by-pluginever' ),
-//	'disabled' => true,
-//), $post->ID ) );
 
 echo wc_category_slider()->elements->switcher( apply_filters( 'wc_category_slider_show_desc_args', array(
 	'name'     => 'show_desc',
 	'label'    => __( 'Show Category Description', 'woo-category-slider-by-pluginever' ),
 	'desc'     => __( 'Show/ Hide category description', 'woo-category-slider-by-pluginever' ),
 	'disabled' => true,
+), $post->ID ) );
+
+echo wc_category_slider()->elements->input( apply_filters( 'wc_category_slider_word_limit_args', array(
+	'name'     => 'word_limit',
+	'label'    => __( 'Word Limit', 'woo-category-slider-by-pluginever' ),
+	'disabled' => 'disabled',
+	'type'     => 'number',
+	'desc'     => __( 'Category description word limit', 'woo-category-slider-by-pluginever' ),
 ), $post->ID ) );
 
 echo wc_category_slider()->elements->colorpicker( apply_filters( 'wc_category_slider_button_bg_color_args', array(

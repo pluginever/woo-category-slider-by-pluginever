@@ -17,6 +17,7 @@ class WC_Category_Slider_CPT {
 		add_action( 'init', array( $this, 'register_shortcode_post' ), 0 );
 		add_filter( 'manage_' . $this->slug . '_posts_columns', array( $this, 'set_shortocode_column' ) );
 		add_filter( 'manage_' . $this->slug . '_posts_custom_column', array( $this, 'shortocode_column_data' ), 10, 2 );
+		add_filter( 'post_updated_messages', array( $this, 'custom_post_update_message' ) );
 	}
 
 	/**
@@ -95,6 +96,29 @@ class WC_Category_Slider_CPT {
 		}
 
 	}
+
+	function custom_post_update_message( $messages ) {
+		global $post, $post_ID;
+
+		$messages['wc_category_slider'] = array(
+			0  => '',
+			1  => __( 'Slider updated!', 'woo-category-slider-by-pluginever' ),
+			2  => __( 'Custom field updated.', 'woo-category-slider-by-pluginever' ),
+			3  => __( 'Custom field deleted.', 'woo-category-slider-by-pluginever' ),
+			4  => __( 'Category slider updated.', 'woo-category-slider-by-pluginever' ),
+			/* translators: %s: date and time of the revision */
+			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Page restored to revision from %s.', 'woo-category-slider-by-pluginever' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6  => __( '<span style="color:#3eabf8" class="dashicons dashicons-buddicons-groups"></span> Your amazing slider is ready!', 'woo-category-slider-by-pluginever' ),
+			7  => __( 'Category slider saved.', 'woo-category-slider-by-pluginever' ),
+			8  => __( 'Category slider submitted.', 'woo-category-slider-by-pluginever' ),
+			9  => '',
+			10 => __( 'Category slider draft.', 'woo-category-slider-by-pluginever' ),
+		);
+
+		return $messages;
+	}
+
+
 }
 
 new WC_Category_Slider_CPT();
