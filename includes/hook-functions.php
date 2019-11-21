@@ -183,7 +183,7 @@ function wc_category_slider_print_js_template() {
 			?>
 			<#
 
-			$(document).on('click', '.edit-image', function (e) {			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
+			jQuery(document).on('click', '.edit-image', function (e) {			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
 
 
 			var $parent = jQuery(this).parentsUntil('.ever-slide-thumbnail');
@@ -194,7 +194,7 @@ function wc_category_slider_print_js_template() {
 
 			});
 
-			$(document).on('click', '.delete-image', function(e){			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
+			jQuery(document).on('click', '.delete-image', function(e){			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
 
 			var $parent = jQuery(this).parentsUntil('.ever-slide-thumbnail');
 
@@ -270,9 +270,9 @@ function wc_category_slider_rest_api_get_slider_preview( $data ) {
 		), 404);
 	}
 
-	
+
 	// $slide_view = wc_category_slider_get_slider_preview_html( $slider_id );
-	
+
 
 	return wp_send_json_success( do_shortcode( '[woo_category_slider id="' . $slider_id . '"]' ) );
 }
