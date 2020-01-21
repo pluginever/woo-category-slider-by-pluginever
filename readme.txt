@@ -120,6 +120,9 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+= 4.0.8 =
+[Fix] WC compatibility with 3.8.1
+[Fix] WP compatibility with 5.3.2
 
 = 4.0.7 =
 [Fix] WC compatibility with 3.8
