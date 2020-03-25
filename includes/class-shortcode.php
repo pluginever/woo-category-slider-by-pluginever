@@ -16,18 +16,18 @@ class WC_Category_Slider_Shortcode {
 			'template' => 'default',
 		) );
 		?>
-		<style>
-			.wc-slider {
-				width: 300px !important;
-				overflow: hidden;
-				float: left;
-				margin: 0 10px 10px 0;
-			}
+        <style>
+            .wc-slider {
+                width: 300px !important;
+                overflow: hidden;
+                float: left;
+                margin: 0 10px 10px 0;
+            }
 
-			.wrap {
-				width: 1200px !important;
-			}
-		</style>
+            .wrap {
+                width: 1200px !important;
+            }
+        </style>
 		<?php
 
 		$files = glob( WC_CAT_SLIDER_TEMPLATES . '/*.php' );
@@ -120,8 +120,8 @@ class WC_Category_Slider_Shortcode {
 
 		?>
 
-	<div class="wc-category-slider <?php echo $wrapper_class; ?>" id="<?php echo 'wc-category-slider-' . $post_id ?>"
-	     data-slider-config='<?php echo $this->get_slider_config( $post_id ); ?>'>
+    <div class="wc-category-slider <?php echo $wrapper_class; ?>" id="<?php echo 'wc-category-slider-' . $post_id ?>"
+         data-slider-config='<?php echo $this->get_slider_config( $post_id ); ?>'>
 
 		<?php
 
@@ -158,7 +158,7 @@ class WC_Category_Slider_Shortcode {
 		//==== Child Term Items ===
 		$child_terms = '';
 
-		if ( 'on' == $include_child ) {
+		if ( 'on' == $include_child && 'on' != $hide_count ) {
 
 			$taxonomy = 'product_cat';
 			$children = array_filter( get_term_children( $term['term_id'], $taxonomy ) );
@@ -181,9 +181,9 @@ class WC_Category_Slider_Shortcode {
 
 		?>
 
-		<div class="wc-slide">
+        <div class="wc-slide">
 
-		<!--Image-->                <?php echo $image; ?>
+        <!--Image-->                <?php echo $image; ?>
 
 		<?php if ( $theme == 'pro-18' ) {
 			echo $count;
@@ -192,7 +192,7 @@ class WC_Category_Slider_Shortcode {
 		<?php
 
 		if ( 'off' == $hide_content ) { ?>
-			<div class="wc-slide-content-wrapper">
+            <div class="wc-slide-content-wrapper">
 
 				<?php
 
@@ -283,13 +283,13 @@ class WC_Category_Slider_Shortcode {
 				}
 
 				?>
-			</div><!--end content-wrapper-->
+            </div><!--end content-wrapper-->
 		<?php }
 		echo '</div><!--end wc-slide-->';
 	}
 
 		?>
-		</div>
+        </div>
 
 		<?php
 
