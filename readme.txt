@@ -2,7 +2,7 @@
 Contributors: manikmist09,pluginever
 Tags: WooCommerce Category Slider, WooCommerce Product Category Slider , WooCommerce, Slider, Category Slider, Slider, Category Details, woo, commerce, e-commerce, ecommerce, gallery, pluginever, product, shop, WooCommerce Category, WooCommerce Slider,WooCommerce Product Category Slider
 Requires at least: 4.4
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -120,6 +120,15 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+= 4.0.9 =
+[Fix] WC compatibility with 4.0.1
+[Fix] WP compatibility with 5.4
+[Fix] auto height added for the slider images in mobile screen
+[Fix] hide children category when count is off
+[Fix] Conflict with Advanced Ajax Product Filters
+[Enhance] description font size increased
+[Fix] CSS prefix to Image Hover
+
 = 4.0.8 =
 [Fix] WC compatibility with 3.8.1
 [Fix] WP compatibility with 5.3.2
