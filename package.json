@@ -51,12 +51,12 @@
     "grunt-sass": "~2.1.0",
     "grunt-stylelint": "~0.10.0",
     "grunt-wp-i18n": "~1.0.1",
-    "stylelint": "~9.2.1",
+    "stylelint": "^13.3.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0"
   },
   "keywords": [],
   "dependencies": {
-    "dompurify": "^1.0.10"
+    "dompurify": "^2.0.8"
   }
 }
