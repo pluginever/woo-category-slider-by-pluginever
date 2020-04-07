@@ -120,6 +120,15 @@ Set "show content" to No from the slider settings in display settings section
 
 
 == Changelog ==
+= 4.0.9 =
+[Fix] WC compatibility with 4.0.1
+[Fix] WP compatibility with 5.4
+[Fix] auto height added for the slider images in mobile screen
+[Fix] hide children category when count is off
+[Fix] Conflict with Advanced Ajax Product Filters
+[Enhance] description font size increased
+[Fix] CSS prefix to Image Hover
+
 = 4.0.8 =
 [Fix] WC compatibility with 3.8.1
 [Fix] WP compatibility with 5.3.2
