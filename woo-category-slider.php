@@ -9,7 +9,7 @@
  * Donate link: https://pluginever.com/contact
  * License:     GPLv2+
  * Text Domain: woo-category-slider-by-pluginever
- * Domain Path: /languages
+ * Domain Path: /i18n/languages/
  * Requires at least: 4.4
  * Tested up to: 5.4
  * WC requires at least: 3.0.0
@@ -72,8 +72,8 @@ class Woocommerce_Category_Slider {
 	/**
 	 * The single instance of the class.
 	 *
-	 * @var Woocommerce_Category_Slider
 	 * @since 1.0.0
+	 * @var Woocommerce_Category_Slider
 	 */
 	protected static $instance = null;
 
@@ -97,6 +97,31 @@ class Woocommerce_Category_Slider {
 	public $plugin_name = 'WP WooCommerce Category Slider';
 
 	/**
+	 * Throw error on object clone
+	 *
+	 * The whole idea of the singleton design pattern is that there is a single
+	 * object therefore, we don't want the object to be cloned.
+	 *
+	 * @access protected
+	 * @return void
+	 */
+
+	public function __clone() {
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woo-category-slider-by-pluginever' ), '1.0.0' );
+	}
+
+	/**
+	 * Disable unserializing of the class
+	 *
+	 * @access protected
+	 * @return void
+	 */
+
+	public function __wakeup() {
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woo-category-slider-by-pluginever' ), '1.0.0' );
+	}
+
+	/**
 	 * WCSerialNumbers constructor.
 	 */
 	public function __construct() {
@@ -118,16 +143,16 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Activate plugin
 	 *
+	 * @return void
 	 * @since 4.0.0
 	 *
-	 * @return void
 	 */
-	public function activate(){
+	public function activate() {
 		if ( false == get_option( 'woocatslider_install_date' ) ) {
 			update_option( 'woocommerce_category_slider_install_date', current_time( 'timestamp' ) );
-		}else{
+		} else {
 			update_option( 'woocommerce_category_slider_install_date', get_option( 'woocatslider_install_date' ) );
-			delete_option('woocatslider_install_date');
+			delete_option( 'woocatslider_install_date' );
 		}
 
 		update_option( 'wc_category_slider_version', $this->version );
@@ -136,9 +161,9 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Checks the server environment and other factors and deactivates plugins as necessary.
 	 *
+	 * @since 1.0.0
 	 * @internal
 	 *
-	 * @since 1.0.0
 	 */
 	public function activation_check() {
 
@@ -146,7 +171,7 @@ class Woocommerce_Category_Slider {
 
 			deactivate_plugins( plugin_basename( __FILE__ ) );
 
-			$message = sprintf( '%s could not be activated The minimum PHP version required for this plugin is %1$s. You are running %2$s.', $this->plugin_name, $this->min_php, PHP_VERSION );
+			$message = sprintf( __('%s could not be activated The minimum PHP version required for this plugin is %1$s. You are running %2$s.','woo-category-slider-by-pluginever'), $this->plugin_name, $this->min_php, PHP_VERSION );
 			wp_die( $message );
 		}
 
@@ -162,10 +187,8 @@ class Woocommerce_Category_Slider {
 	protected function is_plugin_compatible() {
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-			$this->add_notice( 'notice-error', sprintf(
-				'<strong>%s</strong> requires <strong>WooCommerce</strong> installed and active.',
-				$this->plugin_name
-			) );
+			$message = sprintf( __( '<strong>WooCommerce Category Slider</strong> requires <strong>WooCommerce</strong> installed and activated. Please install %s WooCommerce. %s', 'woo-category-slider-by-pluginever' ), '<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">', '</a>' );
+			$this->add_notice( 'error', $message );
 
 			return false;
 		}
@@ -201,21 +224,66 @@ class Woocommerce_Category_Slider {
 	/**
 	 * Displays any admin notices added
 	 *
+	 * @since 1.0.0
 	 * @internal
 	 *
-	 * @since 1.0.0
 	 */
 	public function admin_notices() {
 		$notices = (array) array_merge( $this->notices, get_option( sanitize_key( $this->plugin_name ), [] ) );
 		foreach ( $notices as $notice_key => $notice ) :
 			?>
 			<div class="notice notice-<?php echo sanitize_html_class( $notice['class'] ); ?>">
-				<p><?php echo wp_kses( $notice['message'], array( 'a' => array( 'href' => array() ), 'strong' => array() ) ); ?></p>
+				<p><?php echo wp_kses( $notice['message'], array(
+						'a'      => array( 'href' => array() ),
+						'strong' => array()
+					) ); ?></p>
 			</div>
 			<?php
 			update_option( sanitize_key( $this->plugin_name ), [] );
 		endforeach;
 	}
+
+	/**
+	 * Return plugin version.
+	 *
+	 * @return string
+	 * @since 1.0.0
+	 * @access public
+	 **/
+	public function get_version() {
+		return $this->version;
+	}
+
+	/**
+	 * Plugin URL getter.
+	 *
+	 * @return string
+	 * @since 4.0.9
+	 */
+	public function plugin_url() {
+		return untrailingslashit( plugins_url( '/', __FILE__ ) );
+	}
+
+	/**
+	 * Plugin path getter.
+	 *
+	 * @return string
+	 * @since 4.0.9
+	 */
+	public function plugin_path() {
+		return untrailingslashit( plugin_dir_path( __FILE__ ) );
+	}
+
+	/**
+	 * Plugin base path name getter.
+	 *
+	 * @return string
+	 * @since 4.0.9
+	 */
+	public function plugin_basename() {
+		return plugin_basename( __FILE__ );
+	}
+
 
 	/**
 	 * Initialize plugin for localization
@@ -225,7 +293,7 @@ class Woocommerce_Category_Slider {
 	 *
 	 */
 	public function localization_setup() {
-		load_plugin_textdomain( 'woo-category-slider-by-pluginever', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/languages/' );
+		load_plugin_textdomain( 'woo-category-slider-by-pluginever', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages' );
 	}
 
 	/**
@@ -237,9 +305,10 @@ class Woocommerce_Category_Slider {
 	 */
 	public function is_pro_installed() {
 		$status = false;
-		if(is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) || is_plugin_active( 'woocommerce-category-slider-pro/wc-category-slider-pro.php' )){
+		if ( is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) || is_plugin_active( 'woocommerce-category-slider-pro/wc-category-slider-pro.php' ) ) {
 			$status = true;
 		}
+
 		return $status;
 	}
 
@@ -261,7 +330,7 @@ class Woocommerce_Category_Slider {
 
 	public function init_update() {
 
-		require_once( dirname( __FILE__  ) . '/includes/class-upgrades.php' );
+		require_once( dirname( __FILE__ ) . '/includes/class-upgrades.php' );
 
 		$updater = new WC_Category_Slider_Updates();
 		if ( $updater->needs_update() ) {

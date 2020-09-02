@@ -653,11 +653,24 @@ msgstr ""
 msgid "Given slider ID is not valid."
 msgstr ""
 
-#: woo-category-slider.php:254
+#: woo-category-slider.php:109 woo-category-slider.php:121
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: woo-category-slider.php:174
+msgid "%s could not be activated The minimum PHP version required for this plugin is %1$s. You are running %2$s."
+msgstr ""
+
+#: woo-category-slider.php:190
+msgid ""
+"<strong>WooCommerce Category Slider</strong> requires <strong>WooCommerce</strong> installed and activated. Please install %s WooCommerce. %s"
+msgstr ""
+
+#: woo-category-slider.php:323
 msgid "Documentation"
 msgstr ""
 
-#: woo-category-slider.php:256
+#: woo-category-slider.php:325
 msgid "Upgrade to PRO"
 msgstr ""
 
