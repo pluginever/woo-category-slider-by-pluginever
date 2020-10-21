@@ -35,6 +35,7 @@ add_action( 'add_meta_boxes', 'wc_slider_register_meta_boxes', 10 );
 
 /**
  * Settings metabox
+ * @since 4.0.0
  */
 
 function wc_slider_settings_metabox( $post ) {
@@ -158,7 +159,7 @@ function wc_slider_render_category_settings_metabox( $post ) {
 			<span class="spinner"></span>
 			<?php if ( $action !== 'edit' ) { ?>
 				<input name="original_publish" type="hidden" id="original_publish"
-				       value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ) ?>"/>
+					   value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ) ?>"/>
 				<?php submit_button( __( 'Create Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false ); ?><?php
 			} else { ?>
 				<input name="original_publish" type="hidden" id="original_publish" value="Update"/>
@@ -170,6 +171,14 @@ function wc_slider_render_category_settings_metabox( $post ) {
 	<?php
 
 }
+
+/**
+ * Render shortcode metabox
+ *
+ * @param $post
+ *
+ * @since 4.0.0
+ */
 
 function wc_slider_render_shortcode_metabox( $post ) {
 	echo wc_category_slider()->elements->input( array(
@@ -188,6 +197,7 @@ function wc_slider_render_shortcode_metabox( $post ) {
  * @param $post_id
  *
  * @return bool|null
+ * @since 4.0.0
  */
 
 function wc_category_slider_update_settings( $post_id ) {

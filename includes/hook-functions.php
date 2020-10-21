@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 function wc_slider_get_categories_ajax_callback() {
 
@@ -103,8 +106,8 @@ function wc_category_slider_print_js_template() {
 								</div>
 							<?php } ?>
 							<div class="image-action">
-								<a href="javascript:void(0)" class="edit-image"><span class="dashicons dashicons-edit" title="<?php _e('Change Image', 'woo-category-slider-by-pluginever') ?>"></span></a>
-								<a href="javascript:void(0)" class="delete-image" title="<?php _e('Delete Image', 'woo-category-slider-by-pluginever') ?>"><span class="dashicons dashicons-trash"></span></a>
+								<a href="javascript:void(0)" class="edit-image"><span class="dashicons dashicons-edit" title="<?php _e( 'Change Image', 'woo-category-slider-by-pluginever' ) ?>"></span></a>
+								<a href="javascript:void(0)" class="delete-image" title="<?php _e( 'Delete Image', 'woo-category-slider-by-pluginever' ) ?>"><span class="dashicons dashicons-trash"></span></a>
 							</div>
 
 						</div>
@@ -124,7 +127,7 @@ function wc_category_slider_print_js_template() {
 						<!--icon-->
 						<div class="ever-slide-icon">
 							<select name="categories[{{data.term_id}}][icon]" id="categories-{{data.term_id}}-icon" class="select-2">
-								<option value=""><?php _e('No Icon', 'woo-category-slider-by-pluginever'); ?></option>
+								<option value=""><?php _e( 'No Icon', 'woo-category-slider-by-pluginever' ); ?></option>
 								<?php
 
 								$icons = wc_slider_get_icon_list();
@@ -183,22 +186,22 @@ function wc_category_slider_print_js_template() {
 			?>
 			<#
 
-			jQuery(document).on('click', '.edit-image', function (e) {			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
+			jQuery(document).on('click', '.edit-image', function (e) {            e.preventDefault();            e.stopPropagation();            e.stopImmediatePropagation();
 
 
 			var $parent = jQuery(this).parentsUntil('.ever-slide-thumbnail');
 
-			var $img_prev = $parent.siblings('.img-prev');			var $img_id = $parent.siblings('.img-id');
+			var $img_prev = $parent.siblings('.img-prev');            var $img_id = $parent.siblings('.img-id');
 
-			var image = wp.media({			title: 'Upload Image'			})			.open().on('select', function () {			var uploaded_image = image.state().get('selection').first();			var image_url = uploaded_image.toJSON().url;			var image_id = uploaded_image.toJSON().id;			$img_prev.prop('src', image_url);			$img_id.val(image_id);			});
+			var image = wp.media({            title: 'Upload Image'            })            .open().on('select', function () {            var uploaded_image = image.state().get('selection').first();            var image_url = uploaded_image.toJSON().url;            var image_id = uploaded_image.toJSON().id;            $img_prev.prop('src', image_url);            $img_id.val(image_id);            });
 
 			});
 
-			jQuery(document).on('click', '.delete-image', function(e){			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
+			jQuery(document).on('click', '.delete-image', function(e){            e.preventDefault();            e.stopPropagation();            e.stopImmediatePropagation();
 
 			var $parent = jQuery(this).parentsUntil('.ever-slide-thumbnail');
 
-			var $img_prev = $parent.siblings('.img-prev');			var $img_id = $parent.siblings('.img-id');			$img_prev.prop('src', '<?php echo WC_CAT_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg'; ?>');			$img_id.val('');
+			var $img_prev = $parent.siblings('.img-prev');            var $img_id = $parent.siblings('.img-id');            $img_prev.prop('src', '<?php echo WC_CAT_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg'; ?>');            $img_id.val('');
 
 			});
 
@@ -215,38 +218,37 @@ add_action( 'admin_footer', 'wc_category_slider_print_js_template' );
 function wc_category_slider_rest_api() {
 	$namespace = 'wc-category-slider/v1';
 
-	register_rest_route($namespace, '/slider/all', array(
+	register_rest_route( $namespace, '/slider/all', array(
 		array(
-			'methods' => 'GET',
+			'methods'  => 'GET',
 			'callback' => 'wc_category_slider_rest_api_get_all_sliders'
 		)
-	));
+	) );
 
-	register_rest_route($namespace, '/slider/(?P<id>\d+)', array(
+	register_rest_route( $namespace, '/slider/(?P<id>\d+)', array(
 		array(
-			'methods' => 'GET',
+			'methods'  => 'GET',
 			'callback' => 'wc_category_slider_rest_api_get_slider_preview'
 		)
-	));
+	) );
 }
+
 add_action( 'rest_api_init', 'wc_category_slider_rest_api' );
 
 function wc_category_slider_rest_api_get_all_sliders() {
 	$capability = 'edit_others_posts';
 	if ( ! current_user_can( $capability ) ) {
-		return wp_send_json_error(array(
-			'message' => __('You do not have access to this resource.', 'woo-category-slider-by-pluginever')
-		), 401);
+		return wp_send_json_error( array( 'message' => __( 'You do not have access to this resource.', 'woo-category-slider-by-pluginever' ) ), 401 );
 	}
 
 	$slider_posts = get_posts( array(
-		'post_type' => 'wc_category_slider',
-		'posts_per_page' => -1,
+		'post_type'      => 'wc_category_slider',
+		'posts_per_page' => - 1,
 	) );
 
 	$sliders = array();
 
-	foreach ($slider_posts as $slider_post) {
+	foreach ( $slider_posts as $slider_post ) {
 		$sliders[ $slider_post->ID ] = $slider_post->post_title;
 	}
 
@@ -257,17 +259,13 @@ function wc_category_slider_rest_api_get_all_sliders() {
 function wc_category_slider_rest_api_get_slider_preview( $data ) {
 	$capability = 'edit_others_posts';
 	if ( ! current_user_can( $capability ) ) {
-		return wp_send_json_error(array(
-			'message' => __('You do not have access to this resource.', 'woo-category-slider-by-pluginever')
-		), 401);
+		return wp_send_json_error( array( 'message' => __( 'You do not have access to this resource.', 'woo-category-slider-by-pluginever' ) ), 401 );
 	}
 
 	$slider_id = isset( $data['id'] ) ? $data['id'] : false;
 
 	if ( $slider_id === false ) {
-		return wp_send_json_error(array(
-			'message' => __('Given slider ID is not valid.', 'woo-category-slider-by-pluginever')
-		), 404);
+		return wp_send_json_error( array( 'message' => __( 'Given slider ID is not valid.', 'woo-category-slider-by-pluginever' ) ), 404 );
 	}
 
 
@@ -280,18 +278,18 @@ function wc_category_slider_rest_api_get_slider_preview( $data ) {
 function wc_category_slider_get_slider_preview_html( $id ) {
 	ob_start();
 	?>
-<!DOCTYPE html>
-<html>
+	<!DOCTYPE html>
+	<html>
 	<head>
 		<?php wp_head(); ?>
 	</head>
 	<body>
-		<?php echo do_shortcode( '[woo_category_slider id="' . $id . '"]' ); ?>
+	<?php echo do_shortcode( '[woo_category_slider id="' . $id . '"]' ); ?>
 
-		<?php wp_footer(); ?>
+	<?php wp_footer(); ?>
 	</body>
-</html>
+	</html>
 	<?php
 
-	return preg_replace('/\s+/S', " ", ob_get_clean());
+	return preg_replace( '/\s+/S', " ", ob_get_clean() );
 }

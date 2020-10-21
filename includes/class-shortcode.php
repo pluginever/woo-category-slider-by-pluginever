@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class WC_Category_Slider_Shortcode {
 	/**
@@ -16,18 +19,18 @@ class WC_Category_Slider_Shortcode {
 			'template' => 'default',
 		) );
 		?>
-        <style>
-            .wc-slider {
-                width: 300px !important;
-                overflow: hidden;
-                float: left;
-                margin: 0 10px 10px 0;
-            }
+		<style>
+			.wc-slider {
+				width: 300px !important;
+				overflow: hidden;
+				float: left;
+				margin: 0 10px 10px 0;
+			}
 
-            .wrap {
-                width: 1200px !important;
-            }
-        </style>
+			.wrap {
+				width: 1200px !important;
+			}
+		</style>
 		<?php
 
 		$files = glob( WC_CAT_SLIDER_TEMPLATES . '/*.php' );
@@ -120,15 +123,14 @@ class WC_Category_Slider_Shortcode {
 
 		?>
 
-    <div class="wc-category-slider <?php echo $wrapper_class; ?>" id="<?php echo 'wc-category-slider-' . $post_id ?>"
-         data-slider-config='<?php echo $this->get_slider_config( $post_id ); ?>'>
+	<div class="wc-category-slider <?php echo $wrapper_class; ?>" id="<?php echo 'wc-category-slider-' . $post_id ?>"
+		 data-slider-config='<?php echo $this->get_slider_config( $post_id ); ?>'>
 
 		<?php
 
 	foreach ( $terms
 
 		as $term ) {
-
 
 		//=== Slider Components ===
 		if ( 'on' != $hide_image ) {
@@ -181,9 +183,9 @@ class WC_Category_Slider_Shortcode {
 
 		?>
 
-        <div class="wc-slide">
+		<div class="wc-slide">
 
-        <!--Image-->                <?php echo $image; ?>
+		<!--Image-->                <?php echo $image; ?>
 
 		<?php if ( $theme == 'pro-18' ) {
 			echo $count;
@@ -192,10 +194,9 @@ class WC_Category_Slider_Shortcode {
 		<?php
 
 		if ( 'off' == $hide_content ) { ?>
-            <div class="wc-slide-content-wrapper">
+			<div class="wc-slide-content-wrapper">
 
 				<?php
-
 				//=== Generate html markup based on theme ===
 				if ( in_array( $theme, array(
 					'pro-6',
@@ -283,18 +284,16 @@ class WC_Category_Slider_Shortcode {
 				}
 
 				?>
-            </div><!--end content-wrapper-->
+			</div><!--end content-wrapper-->
 		<?php }
 		echo '</div><!--end wc-slide-->';
 	}
 
 		?>
-        </div>
+		</div>
 
 		<?php
-
 		$this->get_slider_styles( $post_id );
-
 		$html = ob_get_clean();
 
 		return $html;
@@ -308,10 +307,7 @@ class WC_Category_Slider_Shortcode {
 	 *
 	 * @return object
 	 */
-	protected
-	function get_slider_config(
-		$post_id
-	) {
+	protected function get_slider_config( $post_id ) {
 
 		$config = array(
 			'dots'               => 'off' == wc_category_slider_get_meta( $post_id, 'hide_paginate', 'off' ) ? true : false,
@@ -359,8 +355,7 @@ class WC_Category_Slider_Shortcode {
 	 *
 	 */
 
-	public
-	function get_slider_styles(
+	public function get_slider_styles(
 		$post_id
 	) {
 		$theme       = wc_category_slider_get_meta( $post_id, 'theme' );
