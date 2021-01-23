@@ -57,6 +57,6 @@
   },
   "keywords": [],
   "dependencies": {
-    "dompurify": "^2.2.6"
+    "dompurify": "^2.0.17"
   }
 }
