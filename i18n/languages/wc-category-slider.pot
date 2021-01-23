@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Category Slider 4.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/woocommerce-category-slider\n"
-"POT-Creation-Date: 2021-01-23 13:26:38+00:00\n"
+"POT-Creation-Date: 2021-01-23 13:29:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,100 +22,100 @@ msgstr ""
 msgid "Category Settings"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:31 includes/class-cpt.php:77
+#: includes/admin/metabox-functions.php:31 includes/class-cpt.php:80
 msgid "Shortcode"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:56
+#: includes/admin/metabox-functions.php:57
 msgid "Selection Type"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:68
+#: includes/admin/metabox-functions.php:69
 msgid "Select all categories or any custom categories"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:72
+#: includes/admin/metabox-functions.php:73
 msgid "Select Categories"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:90
+#: includes/admin/metabox-functions.php:91
 msgid "Limit Items"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:94
+#: includes/admin/metabox-functions.php:95
 msgid "Limit the number of category appear on the slider"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:98
+#: includes/admin/metabox-functions.php:99
 msgid "Include Children"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:102
+#: includes/admin/metabox-functions.php:103
 msgid "Will include subcategories of the selected categories"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:109
+#: includes/admin/metabox-functions.php:110
 msgid "Empty Categories"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:110
+#: includes/admin/metabox-functions.php:111
 msgid "Show/hide Category without products"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:114
+#: includes/admin/metabox-functions.php:115
 msgid "Order By"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:121
+#: includes/admin/metabox-functions.php:122
 msgid "Term ID"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:122
+#: includes/admin/metabox-functions.php:123
 msgid "Term Name"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:123
+#: includes/admin/metabox-functions.php:124
 msgid "Term Description"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:124
+#: includes/admin/metabox-functions.php:125
 msgid "Term Group"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:125
+#: includes/admin/metabox-functions.php:126
 msgid "Count"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:126 includes/core-functions.php:738
+#: includes/admin/metabox-functions.php:127 includes/core-functions.php:738
 msgid "None"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:130
-#: includes/admin/metabox-functions.php:147
+#: includes/admin/metabox-functions.php:131
+#: includes/admin/metabox-functions.php:148
 msgid "Order category slider according to the selection type"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:135
+#: includes/admin/metabox-functions.php:136
 msgid "Order"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:161
+#: includes/admin/metabox-functions.php:162
 msgid "Publish"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:162
+#: includes/admin/metabox-functions.php:163
 msgid "Create Slider"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:165
+#: includes/admin/metabox-functions.php:166
 msgid "Update Slider"
 msgstr ""
 
-#: includes/admin/metabox-functions.php:181
+#: includes/admin/metabox-functions.php:190
 msgid "Use the shortocode to render the slider anywhere in the page or post."
 msgstr ""
 
-#: includes/admin/views/metabox-categories.php:4
+#: includes/admin/views/metabox-categories.php:10
 msgid "Categories are loading...."
 msgstr ""
 
@@ -220,7 +220,7 @@ msgid "Button Text"
 msgstr ""
 
 #: includes/admin/views/metabox-display-settings.php:109
-#: includes/class-shortcode.php:76
+#: includes/class-shortcode.php:79
 msgid "Shop Now"
 msgstr ""
 
@@ -233,7 +233,7 @@ msgid "Custom Text"
 msgstr ""
 
 #: includes/admin/views/metabox-display-settings.php:117
-#: includes/class-shortcode.php:77
+#: includes/class-shortcode.php:80
 msgid "Products"
 msgstr ""
 
@@ -357,103 +357,103 @@ msgstr ""
 msgid "Add Custom CSS"
 msgstr ""
 
-#: includes/admin/views/metabox-font-settings.php:8
+#: includes/admin/views/metabox-font-settings.php:11
 msgid "Title Font Family"
 msgstr ""
 
-#: includes/admin/views/metabox-font-settings.php:18
+#: includes/admin/views/metabox-font-settings.php:21
 msgid "Select the font family for title"
 msgstr ""
 
-#: includes/admin/views/metabox-font-settings.php:22
+#: includes/admin/views/metabox-font-settings.php:25
 msgid "Description Font Family"
 msgstr ""
 
-#: includes/admin/views/metabox-font-settings.php:32
+#: includes/admin/views/metabox-font-settings.php:35
 msgid "Select the font family for details"
 msgstr ""
 
-#: includes/admin/views/metabox-font-settings.php:36
+#: includes/admin/views/metabox-font-settings.php:39
 msgid "Button Font Family"
 msgstr ""
 
-#: includes/admin/views/metabox-font-settings.php:46
+#: includes/admin/views/metabox-font-settings.php:49
 msgid "Select the font family for buttons"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:5
+#: includes/admin/views/metabox-slider-settings.php:8
 msgid "Slider Autoplay"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:8
+#: includes/admin/views/metabox-slider-settings.php:11
 msgid "Slider will automatically start playing is set Yes."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:13
+#: includes/admin/views/metabox-slider-settings.php:16
 msgid "Slider RTL"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:16
+#: includes/admin/views/metabox-slider-settings.php:19
 msgid "Slider direction from Right to left is set Yes."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:23
+#: includes/admin/views/metabox-slider-settings.php:26
 msgid "Lazy Load"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:31
+#: includes/admin/views/metabox-slider-settings.php:34
 msgid "Number of Column (Desktop)"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:34
+#: includes/admin/views/metabox-slider-settings.php:37
 msgid "The number of slide for desktop screen."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:40
+#: includes/admin/views/metabox-slider-settings.php:43
 msgid "Number of Column (Tablet)"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:43
+#: includes/admin/views/metabox-slider-settings.php:46
 msgid "The number of slide for tablet screen."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:49
+#: includes/admin/views/metabox-slider-settings.php:52
 msgid "Number of Column (Phone)"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:52
+#: includes/admin/views/metabox-slider-settings.php:55
 msgid "The number of slide for mobile screen."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:57
+#: includes/admin/views/metabox-slider-settings.php:60
 msgid "AutoPlay Speed"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:61
+#: includes/admin/views/metabox-slider-settings.php:64
 msgid "The slide auto playing time in millisecond."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:66
+#: includes/admin/views/metabox-slider-settings.php:69
 msgid "Slider Speed"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:70
+#: includes/admin/views/metabox-slider-settings.php:73
 msgid "The interval time of the slide change in millisecond."
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:75
+#: includes/admin/views/metabox-slider-settings.php:78
 msgid "Loop"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:77
+#: includes/admin/views/metabox-slider-settings.php:80
 msgid "Switch On/ Off the slider loop"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:83
+#: includes/admin/views/metabox-slider-settings.php:86
 msgid "Column Gap"
 msgstr ""
 
-#: includes/admin/views/metabox-slider-settings.php:86
+#: includes/admin/views/metabox-slider-settings.php:89
 msgid "Space between the slide in pixel unit. Default: 10px"
 msgstr ""
 
@@ -461,152 +461,152 @@ msgstr ""
 msgid "%s"
 msgstr ""
 
-#: includes/class-cpt.php:33
+#: includes/class-cpt.php:36
 msgid "Add New Slider"
 msgstr ""
 
-#: includes/class-cpt.php:34
+#: includes/class-cpt.php:37
 msgid "New Slider"
 msgstr ""
 
-#: includes/class-cpt.php:35
+#: includes/class-cpt.php:38
 msgid "Edit Slider"
 msgstr ""
 
-#: includes/class-cpt.php:36
+#: includes/class-cpt.php:39
 msgid "View Slider"
 msgstr ""
 
-#: includes/class-cpt.php:37
+#: includes/class-cpt.php:40
 msgid "All Sliders"
 msgstr ""
 
-#: includes/class-cpt.php:38
+#: includes/class-cpt.php:41
 msgid "Search Slider"
 msgstr ""
 
-#: includes/class-cpt.php:39
+#: includes/class-cpt.php:42
 msgid "Parent Slider:"
 msgstr ""
 
-#: includes/class-cpt.php:40
+#: includes/class-cpt.php:43
 msgid "No Slider found."
 msgstr ""
 
-#: includes/class-cpt.php:41
+#: includes/class-cpt.php:44
 msgid "No Slider found in Trash."
 msgstr ""
 
-#: includes/class-cpt.php:42
+#: includes/class-cpt.php:45
 msgid "Slider published."
 msgstr ""
 
-#: includes/class-cpt.php:43
+#: includes/class-cpt.php:46
 msgid "Slider updated."
 msgstr ""
 
-#: includes/class-cpt.php:48
+#: includes/class-cpt.php:51
 msgid "Description."
 msgstr ""
 
-#: includes/class-cpt.php:78
+#: includes/class-cpt.php:81
 msgid "Date"
 msgstr ""
 
-#: includes/class-cpt.php:105
+#: includes/class-cpt.php:108
 msgid "Slider updated!"
 msgstr ""
 
-#: includes/class-cpt.php:106
+#: includes/class-cpt.php:109
 msgid "Custom field updated."
 msgstr ""
 
-#: includes/class-cpt.php:107
+#: includes/class-cpt.php:110
 msgid "Custom field deleted."
 msgstr ""
 
-#: includes/class-cpt.php:108
+#: includes/class-cpt.php:111
 msgid "Category slider updated."
 msgstr ""
 
-#: includes/class-cpt.php:110
+#: includes/class-cpt.php:113
 #. translators: %s: date and time of the revision
 msgid "Page restored to revision from %s."
 msgstr ""
 
-#: includes/class-cpt.php:111
+#: includes/class-cpt.php:114
 msgid ""
 "<span style=\"color:#3eabf8\" class=\"dashicons "
 "dashicons-buddicons-groups\"></span> Your amazing slider is ready!"
 msgstr ""
 
-#: includes/class-cpt.php:112
+#: includes/class-cpt.php:115
 msgid "Category slider saved."
 msgstr ""
 
-#: includes/class-cpt.php:113
+#: includes/class-cpt.php:116
 msgid "Category slider submitted."
 msgstr ""
 
-#: includes/class-cpt.php:115
+#: includes/class-cpt.php:118
 msgid "Category slider draft."
 msgstr ""
 
-#: includes/class-elements.php:59
+#: includes/class-elements.php:61
 msgid "- Please Select -"
 msgstr ""
 
-#: includes/class-elements.php:250
+#: includes/class-elements.php:252
 msgid "Select a User"
 msgstr ""
 
-#: includes/class-elements.php:254
+#: includes/class-elements.php:256
 msgid "Type to search all Users"
 msgstr ""
 
-#: includes/class-elements.php:272
+#: includes/class-elements.php:274
 msgid "No users found"
 msgstr ""
 
-#: includes/class-insights.php:279
+#: includes/class-insights.php:282
 msgid ""
 "Want to help make <strong>%s</strong> even more awesome? Allow Pluginever "
 "to collect non-sensitive diagnostic data and usage information."
 msgstr ""
 
-#: includes/class-insights.php:284
+#: includes/class-insights.php:287
 msgid "what we collect"
 msgstr ""
 
-#: includes/class-insights.php:290
+#: includes/class-insights.php:293
 msgid "Allow"
 msgstr ""
 
-#: includes/class-insights.php:291
+#: includes/class-insights.php:294
 msgid "No thanks"
 msgstr ""
 
-#: includes/class-insights.php:468
+#: includes/class-insights.php:471
 msgid "Once Weekly"
 msgstr ""
 
-#: includes/class-insights.php:604
+#: includes/class-insights.php:607
 msgid "If you have a moment, please let us know why you are deactivating:"
 msgstr ""
 
-#: includes/class-insights.php:618
+#: includes/class-insights.php:621
 msgid "I rather wouldn't say"
 msgstr ""
 
-#: includes/class-insights.php:619
+#: includes/class-insights.php:622
 msgid "Submit & Deactivate"
 msgstr ""
 
-#: includes/class-insights.php:620
+#: includes/class-insights.php:623
 msgid "Canel"
 msgstr ""
 
-#: includes/class-tracker.php:10
+#: includes/class-tracker.php:13
 msgid ""
 "Want to help make <strong>WooCommerce Category Slider</strong> even more "
 "awesome? Allow PluginEver to collect non-sensitive diagnostic data and "
@@ -629,35 +629,52 @@ msgstr ""
 msgid "Pro Features"
 msgstr ""
 
-#: includes/hook-functions.php:106
+#: includes/hook-functions.php:109
 msgid "Change Image"
 msgstr ""
 
-#: includes/hook-functions.php:107
+#: includes/hook-functions.php:110
 msgid "Delete Image"
 msgstr ""
 
-#: includes/hook-functions.php:127
+#: includes/hook-functions.php:130
 msgid "No Icon"
 msgstr ""
 
-#: includes/hook-functions.php:142
+#: includes/hook-functions.php:145
 msgid "%s Icons"
 msgstr ""
 
-#: includes/hook-functions.php:238 includes/hook-functions.php:261
+#: includes/hook-functions.php:241 includes/hook-functions.php:262
 msgid "You do not have access to this resource."
 msgstr ""
 
-#: includes/hook-functions.php:269
+#: includes/hook-functions.php:268
 msgid "Given slider ID is not valid."
 msgstr ""
 
-#: woo-category-slider.php:254
+#: woo-category-slider.php:110 woo-category-slider.php:121
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: woo-category-slider.php:174
+msgid ""
+"%s could not be activated The minimum PHP version required for this plugin "
+"is %1$s. You are running %2$s."
+msgstr ""
+
+#: woo-category-slider.php:190
+msgid ""
+"<strong>WooCommerce Category Slider</strong> requires "
+"<strong>WooCommerce</strong> installed and activated. Please install %s "
+"WooCommerce. %s"
+msgstr ""
+
+#: woo-category-slider.php:323
 msgid "Documentation"
 msgstr ""
 
-#: woo-category-slider.php:256
+#: woo-category-slider.php:325
 msgid "Upgrade to PRO"
 msgstr ""
 
@@ -683,37 +700,37 @@ msgstr ""
 msgid "http://pluginever.com"
 msgstr ""
 
-#: includes/class-cpt.php:28
+#: includes/class-cpt.php:31
 msgctxt "post type general name"
 msgid "WooCommerce Category Slider Shortcode"
 msgstr ""
 
-#: includes/class-cpt.php:29
+#: includes/class-cpt.php:32
 msgctxt "post type singular name"
 msgid "WooCommerce Category Slider"
 msgstr ""
 
-#: includes/class-cpt.php:30
+#: includes/class-cpt.php:33
 msgctxt "admin menu"
 msgid "WC Cat Slider"
 msgstr ""
 
-#: includes/class-cpt.php:31
+#: includes/class-cpt.php:34
 msgctxt "add new on admin bar"
 msgid "WooCommerce Category Slider"
 msgstr ""
 
-#: includes/class-cpt.php:32
+#: includes/class-cpt.php:35
 msgctxt "book"
 msgid "Add New"
 msgstr ""
 
-#: includes/class-elements.php:61
+#: includes/class-elements.php:63
 msgctxt "all dropdown items"
 msgid "All"
 msgstr ""
 
-#: includes/class-elements.php:62
+#: includes/class-elements.php:64
 msgctxt "no dropdown items"
 msgid "None"
 msgstr ""

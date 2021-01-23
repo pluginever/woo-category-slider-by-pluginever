@@ -1,3 +1,9 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+
 <div class="ever-row wc-category-slides-wrapper">
 	<div class="wccs-spinner"></div>
 	<h2 class="wccs-loading-text">

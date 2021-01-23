@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class WC_Category_Slider_Elements {
 
@@ -298,11 +300,11 @@ class WC_Category_Slider_Elements {
 	/**
 	 * Renders an HTML textarea
 	 *
-	 * @since 1.9
-	 *
 	 * @param array $args Arguments for the textarea
 	 *
 	 * @return string textarea
+	 * @since 1.9
+	 *
 	 */
 	public function textarea( $args = array() ) {
 		$defaults = array(
@@ -382,11 +384,11 @@ class WC_Category_Slider_Elements {
 	/**
 	 * Renders an HTML Checkbox
 	 *
-	 * @since 1.9
-	 *
 	 * @param array $args
 	 *
 	 * @return string Checkbox HTML code
+	 * @since 1.9
+	 *
 	 */
 	public function checkbox( $args = array() ) {
 		$defaults = array(
@@ -459,11 +461,11 @@ class WC_Category_Slider_Elements {
 	/**
 	 * Renders an HTML Switcher
 	 *
-	 * @since 4.0.0
-	 *
 	 * @param array $args
 	 *
 	 * @return string Switcher HTML code
+	 * @since 4.0.0
+	 *
 	 */
 	public function switcher( $args = array() ) {
 		$defaults = array(
@@ -530,7 +532,7 @@ class WC_Category_Slider_Elements {
 					  <span class="slider round"></span>
 					  <span class="switch-text"></span>
 					</label>
-					
+
 					';
 
 		if ( $args['desc'] && $args['double_columns'] ) {
@@ -722,11 +724,11 @@ class WC_Category_Slider_Elements {
 	/**
 	 * Renders a date picker
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array $args Arguments for the text field
 	 *
 	 * @return string Datepicker field
+	 * @since 1.0.0
+	 *
 	 */
 	public function date_field( $args = array() ) {
 
@@ -742,11 +744,11 @@ class WC_Category_Slider_Elements {
 	/**
 	 * Renders an HTML Text field
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array $args Arguments for the text field
 	 *
 	 * @return string Text field
+	 * @since 1.0.0
+	 *
 	 */
 	public function input( $args = array() ) {
 
@@ -854,11 +856,11 @@ class WC_Category_Slider_Elements {
 	/**
 	 * Renders an HTML Text field
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array $args Arguments for the text field
 	 *
 	 * @return string Text field
+	 * @since 1.0.0
+	 *
 	 */
 	public function colorpicker( $args = array() ) {
 

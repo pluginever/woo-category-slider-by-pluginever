@@ -57,7 +57,6 @@ jQuery(document).ready(function ($, window, document, undefined) {
 						if (maxHeight < 250) {
 							maxHeight = 250;
 						}
-						console.log(maxHeight);
 						slider.find('.wc-slide-image-wrapper').css('height', maxHeight);
 					});
 				});
